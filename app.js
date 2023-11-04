@@ -1,13 +1,11 @@
 import express from "express";
-import path from "path";
+import path, { dirname }  from "path";
 import cookieParser from"cookie-parser";
 import logger from "morgan";
 import indexRouter from "./routes/index.js";
-
-//getting access for __dirname using ES6
 import { fileURLToPath  } from "url";
-import { dirname } from "path";
 
+//ES6 modules don't have __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
