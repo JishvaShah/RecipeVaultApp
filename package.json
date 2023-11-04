@@ -1,0 +1,24 @@
+{
+  "name": "recipevaultapp",
+  "version": "0.0.0",
+  "private": true,
+  "type":"module",
+  "author":"Jishva Shah & Gaurang Jotwani",
+  "license":"MIT",
+  "scripts": {
+    "start": "node ./node_modules/nodemon/bin/nodemon.js ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-react": "^7.33.2",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.0.3"
+  }
+}
