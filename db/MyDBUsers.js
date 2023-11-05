@@ -16,17 +16,17 @@ function MyMongoDB() {
     return { client, db };
   }
 
-  myDB.register = async function (username, password) {
+  myDB.register = async function (email, password) {
     const { client, db } = await connect();
     const userCollection = db.collection("Users");
     try {
-      const user = await userCollection.findOne({ username });
+      const user = await userCollection.findOne({ email });
       if (user) {
         return { message: "User already exists!" };
       }
       const hashedPassword = await bcrypt.hash(password, 10);
       const newUser = await userCollection.insertOne({
-        username,
+        email,
         password: hashedPassword,
       });
       return { message: "User Registered Successfully!", user: newUser };
@@ -35,11 +35,11 @@ function MyMongoDB() {
     }
   };
 
-  myDB.login = async function (username, password) {
+  myDB.login = async function (email, password) {
     const { client, db } = await connect();
     const userCollection = db.collection("Users");
     try {
-      const user = await userCollection.findOne({ username });
+      const user = await userCollection.findOne({ email });
       if (!user) {
         return { message: "User does not exists!" };
       }

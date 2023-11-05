@@ -1,24 +1,18 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
 
-const AuthForm = ({ buttonText, onButtonClick }) => {
-  const [formData, setFormData] = useState({ email: "", password: "" });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onButtonClick(formData.email, formData.password);
-  };
-
+const AuthForm = ({
+  buttonText,
+  onSubmit,
+  email,
+  setEmail,
+  password,
+  setPassword,
+}) => {
   return (
     <div className="container">
       <div className="row justify-content-center">
         <div className="col-md-6">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={onSubmit}>
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">
                 Email address
@@ -29,8 +23,10 @@ const AuthForm = ({ buttonText, onButtonClick }) => {
                 className="form-control"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
-                onChange={handleChange}
-                value={formData.email}
+                onChange={(event) => {
+                  setEmail(event.target.value);
+                }}
+                value={email}
                 required
               />
             </div>
@@ -43,8 +39,10 @@ const AuthForm = ({ buttonText, onButtonClick }) => {
                 name="password"
                 className="form-control"
                 id="exampleInputPassword1"
-                value={formData.password}
-                onChange={handleChange}
+                value={password}
+                onChange={(event) => {
+                  setPassword(event.target.value);
+                }}
                 required
               />
             </div>
@@ -60,7 +58,11 @@ const AuthForm = ({ buttonText, onButtonClick }) => {
 
 AuthForm.propTypes = {
   buttonText: PropTypes.string,
-  onButtonClick: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  email: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  setEmail: PropTypes.func.isRequired,
+  setPassword: PropTypes.func.isRequired,
 };
 
 export default AuthForm;

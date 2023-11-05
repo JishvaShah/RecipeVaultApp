@@ -1,8 +1,30 @@
 import AuthForm from "../components/AuthForm";
+import { useState } from "react";
+import { Navigate } from "react-router-dom";
 
 export const Register = () => {
-  const onButtonClick = (email, password) => {
-    console.table({ email, password });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const res = await fetch("/api/user/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      if (res.ok) {
+        setPassword("");
+        setEmail("");
+        console.log("Registration Successful!");
+        return <Navigate replace to="/login" />;
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -13,7 +35,14 @@ export const Register = () => {
         </div>
       </div>
       <div className="row">
-        <AuthForm buttonText="Register" onButtonClick={onButtonClick} />
+        <AuthForm
+          buttonText="Register"
+          onSubmit={onSubmit}
+          email={email}
+          password={password}
+          setEmail={setEmail}
+          setPassword={setPassword}
+        />
       </div>
     </div>
   );
