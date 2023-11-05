@@ -12,7 +12,6 @@ function MyMongoDB() {
   async function connect() {
     const client = new MongoClient(uri, {});
     await client.connect();
-    const db = client.db("RecipeVault");
     return { client, db };
   }
 
