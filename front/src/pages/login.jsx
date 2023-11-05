@@ -1,10 +1,15 @@
 import AuthForm from "../components/AuthForm";
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useCookies } from "react-cookie";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const [, setCookies] = useCookies(["access_token"]);
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -19,11 +24,21 @@ export const Login = () => {
       if (res.ok) {
         setPassword("");
         setEmail("");
-        console.log("Login Successful!");
-        return <Navigate replace to="/login" />;
+        navigate("/");
+        const data = await res.json();
+        setCookies("access_token", data.token);
+        window.localStorage.setItem("userID", data.userID);
+        toast.success("Login Successful!", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      } else {
+        const errorData = await res.json();
+        toast.error(errorData.message, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       }
     } catch (err) {
-      console.error(err);
+      console.log(err);
     }
   };
 

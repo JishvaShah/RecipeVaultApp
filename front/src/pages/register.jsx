@@ -1,10 +1,12 @@
 import AuthForm from "../components/AuthForm";
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -19,11 +21,18 @@ export const Register = () => {
       if (res.ok) {
         setPassword("");
         setEmail("");
-        console.log("Registration Successful!");
-        return <Navigate replace to="/login" />;
+        navigate("/login");
+        toast.success("Registration Successful!", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      } else {
+        const errorData = await res.json();
+        toast.error(errorData.message, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       }
     } catch (err) {
-      console.error(err);
+      console.log(err);
     }
   };
 

@@ -1,8 +1,19 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faKitchenSet } from "@fortawesome/free-solid-svg-icons";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 
 export const NavBar = () => {
+  const [cookies, setCookies] = useCookies(["access_token"]);
+  const navigate = useNavigate();
+
+  const logout = () => {
+    setCookies("access_token", "");
+    window.localStorage.removeItem("userID");
+    navigate("/login");
+  };
+
   return (
     <div>
       <nav
@@ -38,26 +49,41 @@ export const NavBar = () => {
                   </Link>
                 </div>
               </li>
-              <li className="nav-item">
-                <div className="nav-link">
-                  <Link
-                    to="/register"
-                    style={{ textDecoration: "none", color: "inherit" }}
-                  >
-                    Register
-                  </Link>
-                </div>
-              </li>
-              <li className="nav-item">
-                <div className="nav-link">
-                  <Link
-                    to="/login"
-                    style={{ textDecoration: "none", color: "inherit" }}
-                  >
-                    Login
-                  </Link>
-                </div>
-              </li>
+              {!cookies.access_token ? (
+                <>
+                  <li className="nav-item">
+                    <div className="nav-link">
+                      <Link
+                        to="/register"
+                        style={{ textDecoration: "none", color: "inherit" }}
+                      >
+                        Register
+                      </Link>
+                    </div>
+                  </li>
+                  <li className="nav-item">
+                    <div className="nav-link">
+                      <Link
+                        to="/login"
+                        style={{ textDecoration: "none", color: "inherit" }}
+                      >
+                        Login
+                      </Link>
+                    </div>
+                  </li>
+                </>
+              ) : (
+                <li className="nav-item">
+                  <div className="nav-link">
+                    <Link
+                      onClick={logout}
+                      style={{ textDecoration: "none", color: "inherit" }}
+                    >
+                      Logout
+                    </Link>
+                  </div>
+                </li>
+              )}
             </ul>
             <span className="navbar-text me-4">
               <div className="nav-link">

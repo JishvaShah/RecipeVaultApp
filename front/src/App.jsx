@@ -5,6 +5,8 @@ import { Register } from "./pages/Register";
 import { Login } from "./pages/Login";
 import { CreateRecipes } from "./pages/CreateRecipe";
 import { NavBar } from "./components/NavBar";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 export default function App() {
   return (
@@ -12,6 +14,7 @@ export default function App() {
       <div>
         <Router>
           <NavBar />
+          <ToastContainer />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<Register />} />
