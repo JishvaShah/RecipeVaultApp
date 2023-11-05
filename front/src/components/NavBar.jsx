@@ -2,12 +2,10 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faKitchenSet } from "@fortawesome/free-solid-svg-icons";
 import { useCookies } from "react-cookie";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export const NavBar = () => {
   const [cookies, setCookies] = useCookies(["access_token"]);
-  const navigate = useNavigate();
 
   const logout = () => {
     setCookies("access_token", "");
