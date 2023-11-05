@@ -3,6 +3,7 @@ import { Home } from "./pages/Home";
 import { SavedRecipes } from "./pages/SavedRecipes";
 import { Register } from "./pages/Register";
 import { Login } from "./pages/Login";
+import { Favourites } from "./pages/Favourites";
 import { CreateRecipes } from "./pages/CreateRecipe";
 import { NavBar } from "./components/NavBar";
 import "react-toastify/dist/ReactToastify.css";
@@ -21,6 +22,7 @@ export default function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/create-recipe" element={<CreateRecipes />} />
             <Route path="/saved-recipes" element={<SavedRecipes />} />
+            <Route path="/favourites" element={<Favourites />} />
           </Routes>
         </Router>
       </div>
