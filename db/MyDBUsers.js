@@ -16,30 +16,36 @@ function MyMongoDB() {
     return { client, db };
   }
 
-  myDB.register = async function (username, password) {
+  myDB.register = async function (email, password) {
     const { client, db } = await connect();
     const userCollection = db.collection("Users");
     try {
-      const user = await userCollection.findOne({ username });
+      const user = await userCollection.findOne({ email });
       if (user) {
-        return { message: "User already exists!" };
+        return { error: true, message: "User already exists!" };
       }
       const hashedPassword = await bcrypt.hash(password, 10);
       const newUser = await userCollection.insertOne({
-        username,
+        email,
         password: hashedPassword,
       });
-      return { message: "User Registered Successfully!", user: newUser };
+      return {
+        message: "User Registered Successfully!",
+        user: newUser,
+        error: false,
+      };
+    } catch (err) {
+      return { error: true, message: "Some unknown error occured. Try Again!" };
     } finally {
       await client.close();
     }
   };
 
-  myDB.login = async function (username, password) {
+  myDB.login = async function (email, password) {
     const { client, db } = await connect();
     const userCollection = db.collection("Users");
     try {
-      const user = await userCollection.findOne({ username });
+      const user = await userCollection.findOne({ email });
       if (!user) {
         return { message: "User does not exists!" };
       }
@@ -47,12 +53,14 @@ function MyMongoDB() {
       const isPasswordValid = await bcrypt.compare(password, user.password);
 
       if (!isPasswordValid) {
-        return { message: "Username or password is Incorrect!" };
+        return { error: true, message: "Username or password is Incorrect!" };
       }
 
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
 
-      return { token, userID: user._id };
+      return { token, userID: user._id, error: false };
+    } catch (err) {
+      return { error: true, message: "Some unknown error occured. Try Again!" };
     } finally {
       await client.close();
     }

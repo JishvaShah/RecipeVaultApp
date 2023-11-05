@@ -1,10 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home } from "./pages/home";
-import { SavedRecipes } from "./pages/saved-recipe";
-import { Register } from "./pages/register";
-import { Login } from "./pages/login";
-import { CreateRecipes } from "./pages/create-recipe";
+import { Home } from "./pages/Home";
+import { SavedRecipes } from "./pages/SavedRecipes";
+import { Register } from "./pages/Register";
+import { Login } from "./pages/Login";
+import { Favourites } from "./pages/Favourites";
+import { CreateRecipes } from "./pages/CreateRecipe";
 import { NavBar } from "./components/NavBar";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 export default function App() {
   return (
@@ -12,12 +15,14 @@ export default function App() {
       <div>
         <Router>
           <NavBar />
+          <ToastContainer />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/create-recipe" element={<CreateRecipes />} />
             <Route path="/saved-recipes" element={<SavedRecipes />} />
+            <Route path="/favourites" element={<Favourites />} />
           </Routes>
         </Router>
       </div>
