@@ -1,7 +1,14 @@
 # RecipeVaultApp
-Recipe Vault is a culinary project aimed at assisting users in curating and managing their favorite recipes.  Our MERN stack app simplifies saving, creating, and organizing recipes, improving your cooking experience.  This will be a client side rendered application that will use AJAX to access data from the backend and render it using React.
+
+Recipe Vault is a culinary project aimed at assisting users in curating and managing their favorite recipes. Our MERN stack app simplifies saving, creating, and organizing recipes, improving your cooking experience. This will be a client side rendered application that will use AJAX to access data from the backend and render it using React.
+
+# Authors
+
+Jishva Shah
+Gaurang Jotwani
 
 # To run locally:
+
 1. Clone the repository
 2. Go to the root folder -> ReactVaultApp
 3. Run following command -> npm install
