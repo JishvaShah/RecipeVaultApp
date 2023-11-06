@@ -1,0 +1,9 @@
+img.maxH {
+  max-height: 500px;
+}
+
+h1.headingStyle {
+  font-size: 100px;
+  color: whitesmoke;
+  margin: 50px;
+}
