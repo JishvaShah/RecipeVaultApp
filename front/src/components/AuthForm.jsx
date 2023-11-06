@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import Spinner from "./Spinner";
 
 const AuthForm = ({
   buttonText,
@@ -7,6 +8,7 @@ const AuthForm = ({
   setEmail,
   password,
   setPassword,
+  loading,
 }) => {
   return (
     <div className="container">
@@ -46,9 +48,11 @@ const AuthForm = ({
                 required
               />
             </div>
-            <button type="submit" className="btn btn-primary">
-              {buttonText || "Submit"}
-            </button>
+            <div className="d-grid">
+              <button type="submit" className="btn btn-primary btn-block">
+                {!loading ? buttonText || "Submit" : <Spinner />}
+              </button>
+            </div>
           </form>
         </div>
       </div>
@@ -63,6 +67,7 @@ AuthForm.propTypes = {
   password: PropTypes.string.isRequired,
   setEmail: PropTypes.func.isRequired,
   setPassword: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 export default AuthForm;

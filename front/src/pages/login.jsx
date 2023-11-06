@@ -6,6 +6,7 @@ import { useCookies } from "react-cookie";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
@@ -13,6 +14,7 @@ export const Login = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
     try {
       const res = await fetch("/api/user/login", {
         method: "POST",
@@ -24,13 +26,14 @@ export const Login = () => {
       if (res.ok) {
         setPassword("");
         setEmail("");
-        navigate("/");
+        setLoading(false);
         const data = await res.json();
         setCookies("access_token", data.token);
         window.localStorage.setItem("userID", data.userID);
         toast.success("Login Successful!", {
           position: toast.POSITION.TOP_RIGHT,
         });
+        navigate("/");
       } else {
         const errorData = await res.json();
         toast.error(errorData.message, {
@@ -40,6 +43,7 @@ export const Login = () => {
     } catch (err) {
       console.log(err);
     }
+    setLoading(false);
   };
 
   return (
@@ -57,6 +61,7 @@ export const Login = () => {
           password={password}
           setEmail={setEmail}
           setPassword={setPassword}
+          loading={loading}
         />
       </div>
     </div>

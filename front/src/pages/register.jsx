@@ -7,9 +7,11 @@ export const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const onSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
     try {
       const res = await fetch("/api/user/register", {
         method: "POST",
@@ -34,6 +36,7 @@ export const Register = () => {
     } catch (err) {
       console.log(err);
     }
+    setLoading(false);
   };
 
   return (
@@ -51,6 +54,7 @@ export const Register = () => {
           password={password}
           setEmail={setEmail}
           setPassword={setPassword}
+          loading={loading}
         />
       </div>
     </div>
