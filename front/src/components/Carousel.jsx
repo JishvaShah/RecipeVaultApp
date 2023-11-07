@@ -11,7 +11,7 @@ export const Carousel = () => {
         <div className="carousel-inner">
           <div className="carousel-item active">
             <img
-              src="https://hips.hearstapps.com/del.h-cdn.co/assets/15/39/2560x1280/landscape-1443212749-gettyimages-73042755.jpg?resize=1200:*"
+              src="https://massel.com/wp-content/uploads/2021/07/Vault_Hero.jpg"
               className="d-block w-100 img-fluid maxH"
               alt="Picture of Bread"
             />
