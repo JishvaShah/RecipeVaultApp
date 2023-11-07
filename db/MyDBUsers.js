@@ -48,7 +48,7 @@ function MyMongoDB() {
     try {
       const user = await userCollection.findOne({ email });
       if (!user) {
-        return { message: "User does not exists!" };
+        return { error: true, message: "User does not exists!" };
       }
 
       const isPasswordValid = await bcrypt.compare(password, user.password);

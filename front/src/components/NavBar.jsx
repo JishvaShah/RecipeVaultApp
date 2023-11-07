@@ -80,16 +80,28 @@ export const NavBar = () => {
                   </li>
                 </>
               ) : (
-                <li className="nav-item">
-                  <div className="nav-link">
-                    <Link
-                      onClick={logout}
-                      style={{ textDecoration: "none", color: "inherit" }}
-                    >
-                      Logout
-                    </Link>
-                  </div>
-                </li>
+                <>
+                  <li className="nav-item">
+                    <div className="nav-link">
+                      <Link
+                        onClick={logout}
+                        style={{ textDecoration: "none", color: "inherit" }}
+                      >
+                        Logout
+                      </Link>
+                    </div>
+                  </li>
+                  <li className="nav-item">
+                    <div className="nav-link">
+                      <Link
+                        to="/update-account"
+                        style={{ textDecoration: "none", color: "inherit" }}
+                      >
+                        Account
+                      </Link>
+                    </div>
+                  </li>
+                </>
               )}
             </ul>
             <span className="navbar-text me-4">
@@ -126,18 +138,6 @@ export const NavBar = () => {
                 </Link>
               </div>
             </span>
-
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search Recipes!"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
           </div>
         </div>
       </nav>
