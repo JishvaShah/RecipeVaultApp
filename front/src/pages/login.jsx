@@ -33,7 +33,7 @@ export const Login = () => {
         toast.success("Login Successful!", {
           position: toast.POSITION.TOP_RIGHT,
         });
-        navigate("/");
+        window.location.href = "/";
       } else {
         const errorData = await res.json();
         toast.error(errorData.message, {
