@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useGetUserID } from "../hook/useGetUserID";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
 export const CreateRecipes = () => {
+  const userID = useGetUserID();
   const [cookies, _] = useCookies(["access_token"]);
   const [recipe, setRecipe] = useState({
     name: "",
@@ -10,9 +12,9 @@ export const CreateRecipes = () => {
     ingredients: [],
     instructions: "",
     imageUrl: "",
-    category:"",
+    category: "",
     cookingTime: 0,
-    userOwner: 0,
+    userOwner: userID,
   });
 
   const navigate = useNavigate();
