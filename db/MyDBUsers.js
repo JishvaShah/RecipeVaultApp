@@ -68,7 +68,7 @@ function MyMongoDB() {
     }
   };
 
-  myDB.addRecipe = async function (recipeId, userId) {
+  myDB.saveRecipe = async function (recipeId, userId) {
     const { client, db } = await connect();
     const userCollection = db.collection("Users");
     const recipeCollection = db.collection("Recipes");
@@ -90,7 +90,7 @@ function MyMongoDB() {
         { $addToSet: { savedRecipes: recipeId } }
       );
       return {
-        message: "Added Recipe Successfully!",
+        message: "Saved Recipe Successfully!",
         error: false,
       };
     } catch (err) {

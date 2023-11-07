@@ -25,14 +25,16 @@ router.post("/login", async (req, res) => {
   res.json(result);
 });
 
-router.put("/add-recipe", async (req, res) => {
+router.put("/save-recipe", async (req, res) => {
   const { recipeId, userId } = req.body;
-  const result = await myDB.addRecipe(recipeId, userId);
+  const result = await myDB.saveRecipe(recipeId, userId);
   console.log(result);
   if (result.error) {
     return res.status(403).json(result);
   }
   res.json(result);
 });
+
+
 
 export default router;
