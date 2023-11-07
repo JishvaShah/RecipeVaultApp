@@ -3,7 +3,21 @@ img.maxH {
 }
 
 h1.headingStyle {
-  font-size: 100px;
+  font-size: 4rem;
   color: whitesmoke;
   margin: 50px;
+  font-family: "Emmeline";
+}
+
+.image-container {
+  position: relative;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  color: #fff; /* Text color */
+  padding: 10px;
+  width: 200px;
 }
