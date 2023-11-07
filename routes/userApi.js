@@ -18,6 +18,7 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   const result = await myDB.login(email, password);
+  console.log(result);
   if (result.error) {
     return res.status(403).json(result);
   }

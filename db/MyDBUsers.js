@@ -59,7 +59,7 @@ function MyMongoDB() {
 
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
 
-      return { token, userID: user._id, error: false };
+      return { message:"User Logged In successfully!", token, userID: user._id, error: false };
     } catch (err) {
       console.log(err);
       return { error: true, message: "Some unknown error occured. Try Again!" };
