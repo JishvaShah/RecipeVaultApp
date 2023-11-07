@@ -1,6 +1,5 @@
 import AuthForm from "../components/AuthForm";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useCookies } from "react-cookie";
 
@@ -8,7 +7,6 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
 
   const [, setCookies] = useCookies(["access_token"]);
 
