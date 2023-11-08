@@ -8,10 +8,16 @@ export const SavedRecipes = () => {
   const [likedRecipes, setLikedRecipes] = useState([]);
   const userID = useGetUserID();
 
+  if(!userID){
+    window.location.href="/";
+    return;
+    
+  }
+
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await fetch("/api/recipe/get-recipe");
+        const response = await fetch(`/api/recipe/get-recipe/${userID}`); 
         if (response.ok) {
           const data = await response.json();
           setRecipes(data.data);

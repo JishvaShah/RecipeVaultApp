@@ -127,7 +127,7 @@ export const NavBar = () => {
               </div>
             </span>
 
-            <span className="navbar-text me-4">
+            {/* <span className="navbar-text me-4">
               <div className="nav-link">
                 <Link
                   to={cookies.access_token ? "/favourites" : "/login"}
@@ -137,7 +137,7 @@ export const NavBar = () => {
                   My Favourites
                 </Link>
               </div>
-            </span>
+            </span> */}
           </div>
         </div>
       </nav>

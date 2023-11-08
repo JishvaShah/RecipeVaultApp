@@ -14,11 +14,13 @@ function MyMongoDB() {
     return { client, db };
   }
 
-  myDB.getRecipes = async function () {
+  myDB.getRecipes = async function (userID) {
     const { client, db } = await connect();
     const recipeCollection = db.collection("Recipes");
     try {
-      const recipes = await recipeCollection.find({}).toArray();
+      
+      console.log(userID);
+      const recipes = await recipeCollection.find({userOwner: userID}).toArray();
       return {
         message: "Recipes received successfully.",
         data: recipes,

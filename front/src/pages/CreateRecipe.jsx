@@ -17,6 +17,11 @@ export const CreateRecipes = () => {
     userOwner: userID,
   });
 
+  if(!userID){
+    window.location.href="/";
+    return;    
+  }
+
   const navigate = useNavigate();
 
   const handleChange = (event) => {
