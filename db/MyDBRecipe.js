@@ -80,47 +80,36 @@ function MyMongoDB() {
     }
   };
 
-  // myDB.getSavedRecipeId = async function (userId) {
-  //   const { client, db } = await connect();
-  //   const userCollection = db.collection("Users");
-  //   try {
-  //     const user = await userCollection.findOne({ _id: new ObjectId(userId) });
-  //     if (!user) {
-  //       return { error: true, message: "User does not exist!" };
-  //     }
-  //     return {
-  //       message: "Saved recipe IDs received successfully.",
-  //       data: user.savedRecipes,
-  //       error: false,
-  //     };
-  //   } catch (err) {
-  //     console.log(err);
-  //     return {
-  //       error: true,
-  //       message: "Some unknown error occurred. Try again!",
-  //     };
-  //   } finally {
-  //     await client.close();
-  //   }
-  // };
 
-  // myDB.getRecipesByUserId = async function (userId) {
-  //   const { client, db } = await connect();
-  //   const recipeCollection = db.collection("Recipes");
-  //   try {
-  //     const recipes = await recipeCollection.find({ userOwner: userId }).toArray();
-  //     return {
-  //       message: "Recipes received successfully.",
-  //       data: recipes,
-  //       error: false,
-  //     };
-  //   } catch (err) {
-  //     console.log(err);
-  //     return { error: true, message: "Some unknown error occurred. Try again!" };
-  //   } finally {
-  //     await client.close();
-  //   }
-  // };
+  myDB.getRecipeById = async function (recipeId) {
+    const { client, db } = await connect();
+    const recipeCollection = db.collection("Recipes");
+    try {
+      const recipe = await recipeCollection.findOne({ _id: new ObjectId(recipeId) });
+      return recipe;
+    } catch (err) {
+      console.log(err);
+      return null; // Recipe not found or an error occurred
+    } finally {
+      await client.close();
+    }
+  };
+  
+  myDB.deleteRecipe = async function (recipeId) {
+    const { client, db } = await connect();
+    const recipeCollection = db.collection("Recipes");
+    try {
+      const result = await recipeCollection.deleteOne({ _id: new ObjectId(recipeId) });
+      if (result.deletedCount === 0) {
+        throw new Error("Recipe not found or unauthorized");
+      }
+    } catch (err) {
+      console.log(err);
+      throw err; // An error occurred while deleting the recipe
+    } finally {
+      await client.close();
+    }
+  };
 
   return myDB;
 }

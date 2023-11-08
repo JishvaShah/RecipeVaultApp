@@ -13,7 +13,7 @@
 }
 
 .recipe-card {
-  flex-basis: 40%;
+  flex-basis: 50%;
   margin: 10px;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -24,12 +24,14 @@
 .recipe-card:hover {
   transform: translateY(-5px);
 }
-
+.card-img-container{
+  text-align: center;
+}
 .card-img-top {
-    padding: 5%;
-  height: 280px;
-  width: 100%;
-  border-radius: 6%;
+  padding: 5%;
+  height: 500px;
+  width: 500px;
+  border-radius: 50px;
 }
 
 .card-body {
@@ -51,6 +53,14 @@
 .card-text {
   font-size: 14px; 
   color: #333;  
+}
+.card-footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .like-button {
