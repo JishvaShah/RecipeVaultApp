@@ -9,7 +9,7 @@ export const SavedRecipes = () => {
   const [keyword, setKeyword] = useState("");
   const [showLikedRecipes, setShowLikedRecipes] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const recipesPerPage = 4;
+  const recipesPerPage = 1;
 
   const userID = useGetUserID();
 
@@ -83,6 +83,7 @@ export const SavedRecipes = () => {
           (recipe) => recipe._id !== recipeId
         );
         setRecipes(updatedRecipes);
+        setCurrentPage(1);
       } catch (error) {
         console.error(error);
       }
