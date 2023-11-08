@@ -66,12 +66,18 @@ div.search-container {
   text-overflow: ellipsis;
 }
 
-.like-button {
-  border: none;
-  cursor: pointer;
-  /* border-color:#ff6b6b; */
-}
 
-.like-button:hover {
-  color: #ffcd77;
-}
+    
+    border: none;
+    cursor: pointer;
+    /* border-color:#ff6b6b; */  
+    
+  }
+  
+  .like-button:hover {
+    color: #ffcd77; 
+  }
+
+  .delete-button{
+    color:#f34242 ;
+  }

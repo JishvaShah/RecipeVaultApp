@@ -62,24 +62,30 @@ export const SavedRecipes = () => {
   };
 
   const deleteRecipe = async (recipeId) => {
-    try {
-      await fetch(`/api/recipe/delete-recipe/${recipeId}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userId: userID,
-        }),
-      });
+    const confirmation = window.confirm(
+      "Do you surely want to delete this recipe?"
+    );
 
-      // Remove the deleted recipe from the local state
-      const updatedRecipes = recipes.filter(
-        (recipe) => recipe._id !== recipeId
-      );
-      setRecipes(updatedRecipes);
-    } catch (error) {
-      console.error(error);
+    if (confirmation) {
+      try {
+        await fetch(`/api/recipe/delete-recipe/${recipeId}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: userID,
+          }),
+        });
+
+        // Remove the deleted recipe from the local state
+        const updatedRecipes = recipes.filter(
+          (recipe) => recipe._id !== recipeId
+        );
+        setRecipes(updatedRecipes);
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 
