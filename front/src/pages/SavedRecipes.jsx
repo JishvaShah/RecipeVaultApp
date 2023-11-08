@@ -10,6 +10,9 @@ export const SavedRecipes = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
+        if (!userID) {
+          window.location.href = "/";
+        }
         const response = await fetch(`/api/recipe/get-recipe/${userID}`);
         if (response.ok) {
           const data = await response.json();
@@ -25,11 +28,6 @@ export const SavedRecipes = () => {
 
     fetchRecipes();
   }, [userID]);
-
-  if (!userID) {
-    window.location.href = "/";
-    return;
-  }
 
   const toggleLike = async (recipeId, isLiked) => {
     try {
