@@ -13,7 +13,7 @@ export const CreateRecipes = () => {
     imageUrl: "",
     category: "",
     cookingTime: 0,
-    isliked:false,
+    isliked: false,
     userOwner: userID,
   });
   const navigate = useNavigate();
@@ -55,7 +55,7 @@ export const CreateRecipes = () => {
 
       if (response.ok) {
         alert("Recipe Created");
-        navigate("/");
+        navigate("/saved-recipes");
       } else {
         // Handle error response
         console.error("Recipe creation failed");
