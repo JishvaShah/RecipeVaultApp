@@ -51,9 +51,16 @@
 }
 
 .card-text {
+  padding-top: 10px;
   font-size: 14px; 
   color: #333;  
 }
+
+.card-text-title{
+  color: #f34242; 
+  font-weight: 500;
+}
+
 .card-footer{
   display: flex;
   flex-direction: row;
@@ -63,8 +70,7 @@
   text-overflow: ellipsis;
 }
 
-.like-button {
-    
+.like-button {    
     border: none;
     cursor: pointer;
     /* border-color:#ff6b6b; */  
