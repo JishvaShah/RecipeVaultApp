@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useGetUserID } from "../hook/useGetUserID";
 import LikeButton from "../components/LikeButton";
 import "./SavedRecipes.css";
+import { SearchBar } from "../components/SearchBar";
 
 export const SavedRecipes = () => {
   const [recipes, setRecipes] = useState([]);
@@ -62,6 +63,7 @@ export const SavedRecipes = () => {
   return (
     <div>
       <h1 className="recipe-title">-My Recipes-</h1>
+      <SearchBar />
       <div className="recipe-grid">
         {Array.isArray(recipes) ? (
           recipes.map((recipe) => (
