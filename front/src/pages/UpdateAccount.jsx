@@ -27,7 +27,6 @@ export const UpdateAccount = () => {
 
           if (response.ok) {
             const data = await response.json();
-            console.log(data);
             setEmail(data.user.email); // Assuming the response contains the user's email
           } else {
             throw new Error("Failed to fetch email");

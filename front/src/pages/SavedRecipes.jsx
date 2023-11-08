@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useGetUserID } from "../hook/useGetUserID";
 import LikeButton from "../components/LikeButton";
 import "./SavedRecipes.css";
@@ -8,16 +8,10 @@ export const SavedRecipes = () => {
   const [likedRecipes, setLikedRecipes] = useState([]);
   const userID = useGetUserID();
 
-  if(!userID){
-    window.location.href="/";
-    return;
-    
-  }
-
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await fetch(`/api/recipe/get-recipe/${userID}`); 
+        const response = await fetch(`/api/recipe/get-recipe/${userID}`);
         if (response.ok) {
           const data = await response.json();
           setRecipes(data.data);
@@ -31,7 +25,12 @@ export const SavedRecipes = () => {
     };
 
     fetchRecipes();
-  }, []);
+  }, [userID]);
+
+  if (!userID) {
+    window.location.href = "/";
+    return;
+  }
 
   const toggleLike = async (recipeId) => {
     try {
@@ -81,8 +80,11 @@ export const SavedRecipes = () => {
                 <div className="card-body">
                   <h3 className="card-title">{recipe.name}</h3>
                   <p className="card-text">{recipe.instructions}</p>
-                  <p className="card-text">Cooking Time: {recipe.cookingTime} mins</p>
-                   <LikeButton className="like-button"
+                  <p className="card-text">
+                    Cooking Time: {recipe.cookingTime} mins
+                  </p>
+                  <LikeButton
+                    className="like-button"
                     isLiked={recipe.isLiked}
                     onToggleLike={() => toggleLike(recipe._id)}
                   />

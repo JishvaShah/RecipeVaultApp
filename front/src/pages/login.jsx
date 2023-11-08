@@ -2,11 +2,13 @@ import AuthForm from "../components/AuthForm";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const [, setCookies] = useCookies(["access_token"]);
 
@@ -31,7 +33,7 @@ export const Login = () => {
         toast.success("Login Successful!", {
           position: toast.POSITION.TOP_RIGHT,
         });
-        window.location.href = "/";
+        navigate("/");
       } else {
         const errorData = await res.json();
         toast.error(errorData.message, {
