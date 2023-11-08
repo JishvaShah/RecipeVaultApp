@@ -60,22 +60,30 @@ export const SavedRecipes = () => {
   };
 
   const deleteRecipe = async (recipeId) => {
-    try {
-      await fetch(`/api/recipe/delete-recipe/${recipeId}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userId: userID,
-        }),
-      });
-  
-      // Remove the deleted recipe from the local state
-      const updatedRecipes = recipes.filter((recipe) => recipe._id !== recipeId);
-      setRecipes(updatedRecipes);
-    } catch (error) {
-      console.error(error);
+    const confirmation = window.confirm(
+      "Do you surely want to delete this recipe?"
+    );
+
+    if (confirmation) {
+      try {
+        await fetch(`/api/recipe/delete-recipe/${recipeId}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: userID,
+          }),
+        });
+
+        // Remove the deleted recipe from the local state
+        const updatedRecipes = recipes.filter(
+          (recipe) => recipe._id !== recipeId
+        );
+        setRecipes(updatedRecipes);
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 
@@ -135,9 +143,14 @@ export const SavedRecipes = () => {
                     <LikeButton
                       className="like-button"
                       isLiked={recipe.isLiked}
-                      onToggleLike={() => toggleLike(recipe._id, recipe.isLiked)}
+                      onToggleLike={() =>
+                        toggleLike(recipe._id, recipe.isLiked)
+                      }
                     />
-                    <button className="delete-button" onClick={() => deleteRecipe(recipe._id)}>
+                    <button
+                      className="delete-button"
+                      onClick={() => deleteRecipe(recipe._id)}
+                    >
                       X
                     </button>
                   </div>

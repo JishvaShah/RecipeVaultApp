@@ -67,11 +67,14 @@
     
     border: none;
     cursor: pointer;
-    /* border-color:#ff6b6b; */
-    
+    /* border-color:#ff6b6b; */  
     
   }
   
   .like-button:hover {
     color: #ffcd77; 
+  }
+
+  .delete-button{
+    color:#f34242 ;
   }

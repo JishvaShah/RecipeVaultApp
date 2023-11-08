@@ -1,7 +1,5 @@
 import { Carousel } from "../components/Carousel";
 
-// import { RecipeGallery } from "../components/RecipeGallery";
-
 export const Home = () => {
   return (
     <div className="mt-4 ms-4 me-4">

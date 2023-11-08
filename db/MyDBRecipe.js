@@ -19,7 +19,6 @@ function MyMongoDB() {
     const recipeCollection = db.collection("Recipes");
     try {
       
-      console.log(userID);
       const recipes = await recipeCollection.find({userOwner: userID}).toArray();
       return {
         message: "Recipes received successfully.",
@@ -38,7 +37,7 @@ function MyMongoDB() {
     const { client, db } = await connect();
     const recipeCollection = db.collection("Recipes");
     try {
-      console.log(recipe);
+
       const newRecipe = await recipeCollection.insertOne(recipe);
       return {
         message: "Recipe created Successfully!",
@@ -63,7 +62,7 @@ function MyMongoDB() {
         { $set: { isLiked: isLiked } },
         { returnOriginal: false }
       );
-      console.log(updatedRecipe);
+      
       if (!updatedRecipe) {
         throw new Error("Recipe not found or unauthorized");
       }
