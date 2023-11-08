@@ -21,7 +21,6 @@ export const SavedRecipes = () => {
         if (response.ok) {
           const data = await response.json();
           setRecipes(data.data);
-          console.log(data.data);
         } else {
           console.error("Failed to fetch data.");
         }

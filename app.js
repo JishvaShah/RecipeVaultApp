@@ -2,7 +2,6 @@ import express from "express";
 import path, { dirname } from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
-import indexRouter from "./routes/index.js";
 import userRouter from "./routes/userApi.js";
 import recipeRouter from "./routes/recipeApi.js";
 import { fileURLToPath } from "url";
@@ -18,9 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "front", "dist")));
-app.use("/", indexRouter);
 app.use("/api/user", userRouter);
 app.use("/api/recipe", recipeRouter);
 
 export default app;
-
