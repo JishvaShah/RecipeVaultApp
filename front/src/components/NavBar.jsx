@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faKitchenSet } from "@fortawesome/free-solid-svg-icons";
 import { useCookies } from "react-cookie";
 import { toast } from "react-toastify";
+import "./NavBar.css";
 
 export const NavBar = () => {
   const [cookies, setCookies] = useCookies(["access_token"]);
@@ -23,16 +24,7 @@ export const NavBar = () => {
 
   return (
     <div>
-      <nav
-        className="navbar navbar-expand-lg "
-        style={{
-          backgroundColor: "#ffebcc",
-          fontFamily: "Montserrat",
-          fontWeight: 600,
-          padding: "10px 20px",
-          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1);",
-        }}
-      >
+      <nav className="navbar navbar-expand-lg colors">
         <div className="container-fluid">
           <div className="navbar-brand">
             <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
@@ -132,18 +124,6 @@ export const NavBar = () => {
                 </Link>
               </div>
             </span>
-
-            {/* <span className="navbar-text me-4">
-              <div className="nav-link">
-                <Link
-                  to={cookies.access_token ? "/favourites" : "/login"}
-                  style={{ textDecoration: "none", color: "inherit" }}
-                  onClick={handleProtectedRoute}
-                >
-                  My Favourites
-                </Link>
-              </div>
-            </span> */}
           </div>
         </div>
       </nav>
