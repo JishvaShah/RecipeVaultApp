@@ -33,33 +33,28 @@ export const SavedRecipes = () => {
     fetchRecipes();
   }, []);
 
-  const toggleLike = async (recipeId) => {
+  const toggleLike = async (recipeId, isLiked) => {
     try {
-      if (likedRecipes.includes(recipeId)) {
-        setLikedRecipes(likedRecipes.filter((id) => id !== recipeId));
-        await fetch(`/api/recipe/update-like/${recipeId}`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            userId: userID,
-            isLiked: 0, // 0 means unliked
-          }),
-        });
-      } else {
-        setLikedRecipes([...likedRecipes, recipeId]);
-        await fetch(`/api/recipe/update-like/${recipeId}`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            userId: userID,
-            isLiked: 1, // 1 means liked
-          }),
-        });
-      }
+      const newIsLiked = !isLiked; // Toggle the like status
+      await fetch(`/api/recipe/update-like/${recipeId}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: userID,
+          isLiked: newIsLiked,
+        }),
+      });
+
+      // Update the "isLiked" status locally
+      const updatedRecipes = recipes.map((recipe) => {
+        if (recipe._id === recipeId) {
+          return { ...recipe, isLiked: newIsLiked };
+        }
+        return recipe;
+      });
+      setRecipes(updatedRecipes);
     } catch (error) {
       console.error(error);
     }
@@ -84,7 +79,7 @@ export const SavedRecipes = () => {
                   <p className="card-text">Cooking Time: {recipe.cookingTime} mins</p>
                    <LikeButton className="like-button"
                     isLiked={recipe.isLiked}
-                    onToggleLike={() => toggleLike(recipe._id)}
+                    onToggleLike={() => toggleLike(recipe._id, recipe.isLiked)}
                   />
                 </div>
               </div>
