@@ -6,7 +6,8 @@
   "author": "Jishva Shah & Gaurang Jotwani",
   "license": "MIT",
   "scripts": {
-    "start": "node ./node_modules/nodemon/bin/nodemon.js ./bin/www"
+    "start": "node ./node_modules/nodemon/bin/nodemon.js ./bin/www",
+    "initDB": "mongoimport -d RecipeVault -c Users --jsonArray db/MOCK_USER_DATA.json"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
