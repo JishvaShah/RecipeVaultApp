@@ -13,7 +13,7 @@ export const CreateRecipes = () => {
     imageUrl: "",
     category: "",
     cookingTime: 0,
-    isliked: 0,
+    isliked:false,
     userOwner: userID,
   });
   const navigate = useNavigate();
