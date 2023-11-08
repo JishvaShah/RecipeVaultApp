@@ -9,7 +9,7 @@ export const SavedRecipes = () => {
   const [keyword, setKeyword] = useState("");
   const [showLikedRecipes, setShowLikedRecipes] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const recipesPerPage = 1;
+  const recipesPerPage = 6;
 
   const userID = useGetUserID();
 
