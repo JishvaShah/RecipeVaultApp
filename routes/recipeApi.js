@@ -46,15 +46,31 @@ router.post("/update-like/:recipeId", async (req, res) => {
   }
 });
 
+router.delete("/delete-recipe/:recipeId", async (req, res) => {
+  const { recipeId } = req.params;
+  const { userId } = req.body;
 
-//getting all recipes based on the user ID. (My Recipes Page)
-router.get("/user-recipes", async (req, res) => {
-  const { userId } = req.query; // Use query parameters to get the user ID
-  const result = await myDB.getRecipesByUserId(userId);
-  if (result.error) {
-    return res.status(403).json(result);
+  try {
+    // Check if the user is authorized to delete the recipe
+    const recipe = await myDB.getRecipeById(recipeId);
+
+    if (!recipe) {
+      return res.status(404).json({ message: "Recipe not found" });
+    }
+
+    if (recipe.userOwner !== userId) {
+      return res.status(403).json({ message: "Unauthorized to delete this recipe" });
+    }
+
+    // Delete the recipe
+    await myDB.deleteRecipe(recipeId);
+
+    res.status(200).json({ message: "Recipe deleted successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Failed to delete the recipe" });
   }
-  res.json(result);
 });
+
 
 export default router;

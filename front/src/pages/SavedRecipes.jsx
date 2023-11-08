@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useGetUserID } from "../hook/useGetUserID";
 import LikeButton from "../components/LikeButton";
-import "./SavedRecipes.css";
 import { SearchBar } from "../components/SearchBar";
+import "./SavedRecipes.css";
 
 export const SavedRecipes = () => {
   const [recipes, setRecipes] = useState([]);
@@ -60,6 +60,26 @@ export const SavedRecipes = () => {
     }
   };
 
+  const deleteRecipe = async (recipeId) => {
+    try {
+      await fetch(`/api/recipe/delete-recipe/${recipeId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: userID,
+        }),
+      });
+  
+      // Remove the deleted recipe from the local state
+      const updatedRecipes = recipes.filter((recipe) => recipe._id !== recipeId);
+      setRecipes(updatedRecipes);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   // Function to filter recipes based on keyword
   const filteredRecipes = recipes.filter((recipe) => {
     const { category, name } = recipe;
@@ -99,22 +119,29 @@ export const SavedRecipes = () => {
           filteredRecipes.map((recipe) => (
             <div key={recipe._id} className="recipe-card">
               <div className="card">
-                <img
-                  src={recipe.imageUrl}
-                  className="card-img-top"
-                  alt={recipe.name}
-                />
+                <div className="card-img-container">
+                  <img
+                    src={recipe.imageUrl}
+                    className="card-img-top"
+                    alt={recipe.name}
+                  />
+                </div>
                 <div className="card-body">
                   <h3 className="card-title">{recipe.name}</h3>
                   <p className="card-text">{recipe.instructions}</p>
                   <p className="card-text">
                     Cooking Time: {recipe.cookingTime} mins
                   </p>
-                  <LikeButton
-                    className="like-button"
-                    isLiked={recipe.isLiked}
-                    onToggleLike={() => toggleLike(recipe._id, recipe.isLiked)}
-                  />
+                  <div className="card-footer">
+                    <LikeButton
+                      className="like-button"
+                      isLiked={recipe.isLiked}
+                      onToggleLike={() => toggleLike(recipe._id, recipe.isLiked)}
+                    />
+                    <button className="delete-button" onClick={() => deleteRecipe(recipe._id)}>
+                      X
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
