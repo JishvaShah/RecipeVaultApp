@@ -150,7 +150,20 @@ export const SavedRecipes = () => {
                 </div>
                 <div className="card-body">
                   <h3 className="card-title">{recipe.name}</h3>
-                  <p className="card-text">{recipe.instructions}</p>
+                  <p className="card-text">
+                    <span className="card-text-title">Ingredients: </span>
+                    <br />
+                    <ul>
+                      {recipe.ingredients.map((ingredient, index) => (
+                        <li key={index}>{ingredient}</li>
+                      ))}
+                    </ul>
+                  </p>
+                  <p className="card-text">
+                    <span className="card-text-title">Instructions: </span>
+                    <br />
+                    {recipe.instructions}
+                  </p>
                   <p className="card-text">
                     Cooking Time: {recipe.cookingTime} mins
                   </p>
