@@ -5,7 +5,6 @@ import "./SavedRecipes.css";
 
 export const SavedRecipes = () => {
   const [recipes, setRecipes] = useState([]);
-  const [likedRecipes, setLikedRecipes] = useState([]);
   const userID = useGetUserID();
 
   useEffect(() => {
