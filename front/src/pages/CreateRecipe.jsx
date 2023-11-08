@@ -5,7 +5,7 @@ import { useCookies } from "react-cookie";
 
 export const CreateRecipes = () => {
   const userID = useGetUserID();
-  const [cookies, _] = useCookies(["access_token"]);
+  const [cookies] = useCookies(["access_token"]);
   const [recipe, setRecipe] = useState({
     name: "",
     ingredients: [],
