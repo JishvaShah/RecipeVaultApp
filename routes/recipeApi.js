@@ -3,8 +3,9 @@ import myDB from "../db/MyDBRecipe.js";
 
 let router = express.Router();
 
-router.get("/get-recipe", async (req, res) => {
-  const result = await myDB.getRecipes();
+router.get("/get-recipe/:userID", async (req, res) => {
+  const { userID } = req.params;
+  const result = await myDB.getRecipes(userID);
   if (result.error) {
     return res.status(501).json(result);
   }
