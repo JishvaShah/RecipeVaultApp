@@ -8,6 +8,8 @@ export const SavedRecipes = () => {
   const [recipes, setRecipes] = useState([]);
   const [keyword, setKeyword] = useState("");
   const [showLikedRecipes, setShowLikedRecipes] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const recipesPerPage = 4;
 
   const userID = useGetUserID();
 
@@ -70,9 +72,11 @@ export const SavedRecipes = () => {
           userId: userID,
         }),
       });
-  
+
       // Remove the deleted recipe from the local state
-      const updatedRecipes = recipes.filter((recipe) => recipe._id !== recipeId);
+      const updatedRecipes = recipes.filter(
+        (recipe) => recipe._id !== recipeId
+      );
       setRecipes(updatedRecipes);
     } catch (error) {
       console.error(error);
@@ -90,12 +94,21 @@ export const SavedRecipes = () => {
     );
   });
 
+  const totalPages = Math.ceil(filteredRecipes.length / recipesPerPage);
+  const startIndex = (currentPage - 1) * recipesPerPage;
+  const endIndex = startIndex + recipesPerPage;
+  const recipesToDisplay = filteredRecipes.slice(startIndex, endIndex);
+
   return (
     <div>
       <h1 className="recipe-title">-My Recipes-</h1>
-      <div className="container py-4">
-        <div className="row">
-          <SearchBar keyword={keyword} setKeyword={setKeyword} />
+      <div className="container py-4 recipe-grid">
+        <div className="row search-container">
+          <SearchBar
+            keyword={keyword}
+            setKeyword={setKeyword}
+            setCurrentPage={setCurrentPage}
+          />
           <div className="col-md-3 mx-auto">
             <div className="form-check">
               <input
@@ -103,7 +116,10 @@ export const SavedRecipes = () => {
                 className="form-check-input"
                 id="showLikedRecipes"
                 checked={showLikedRecipes}
-                onChange={() => setShowLikedRecipes(!showLikedRecipes)}
+                onChange={() => {
+                  setCurrentPage(1);
+                  setShowLikedRecipes(!showLikedRecipes);
+                }}
               />
               <label className="form-check-label" htmlFor="showLikedRecipes">
                 Show Only Liked
@@ -114,8 +130,8 @@ export const SavedRecipes = () => {
       </div>
 
       <div className="recipe-grid">
-        {filteredRecipes.length > 0 ? (
-          filteredRecipes.map((recipe) => (
+        {recipesToDisplay.length > 0 ? (
+          recipesToDisplay.map((recipe) => (
             <div key={recipe._id} className="recipe-card">
               <div className="card">
                 <div className="card-img-container">
@@ -135,9 +151,14 @@ export const SavedRecipes = () => {
                     <LikeButton
                       className="like-button"
                       isLiked={recipe.isLiked}
-                      onToggleLike={() => toggleLike(recipe._id, recipe.isLiked)}
+                      onToggleLike={() =>
+                        toggleLike(recipe._id, recipe.isLiked)
+                      }
                     />
-                    <button className="delete-button" onClick={() => deleteRecipe(recipe._id)}>
+                    <button
+                      className="delete-button"
+                      onClick={() => deleteRecipe(recipe._id)}
+                    >
                       X
                     </button>
                   </div>
@@ -149,6 +170,26 @@ export const SavedRecipes = () => {
           <p>No recipes found. Create a new recipe today!</p>
         )}
       </div>
+      {/* Pagination controls */}
+      <nav>
+        <ul className="pagination justify-content-center">
+          {Array.from({ length: totalPages }, (_, index) => (
+            <li
+              key={index}
+              className={`page-item ${
+                currentPage === index + 1 ? "active" : ""
+              }`}
+            >
+              <button
+                className="page-link"
+                onClick={() => setCurrentPage(index + 1)}
+              >
+                {index + 1}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </div>
   );
 };

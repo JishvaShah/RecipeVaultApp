@@ -1,7 +1,7 @@
-.recipe-title{
-    text-align: center;
-    color: #f34242 ;
-    padding: 1%;
+.recipe-title {
+  text-align: center;
+  color: #f34242;
+  padding: 1%;
 }
 .card {
   border: none;
@@ -9,7 +9,11 @@
 .recipe-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
+}
+
+div.search-container {
+  width: 60%;
 }
 
 .recipe-card {
@@ -24,7 +28,7 @@
 .recipe-card:hover {
   transform: translateY(-5px);
 }
-.card-img-container{
+.card-img-container {
   text-align: center;
 }
 .card-img-top {
@@ -39,22 +43,21 @@
 }
 
 .card-title {
-   
-  color: #f34242; 
+  color: #f34242;
   margin-bottom: 5px;
 }
 
 .cooking-time {
-  font-size: 14px;  
-  color: #f34242; 
+  font-size: 14px;
+  color: #f34242;
   margin-bottom: 10px;
 }
 
 .card-text {
-  font-size: 14px; 
-  color: #333;  
+  font-size: 14px;
+  color: #333;
 }
-.card-footer{
+.card-footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -64,14 +67,11 @@
 }
 
 .like-button {
-    
-    border: none;
-    cursor: pointer;
-    /* border-color:#ff6b6b; */
-    
-    
-  }
-  
-  .like-button:hover {
-    color: #ffcd77; 
-  }
+  border: none;
+  cursor: pointer;
+  /* border-color:#ff6b6b; */
+}
+
+.like-button:hover {
+  color: #ffcd77;
+}
