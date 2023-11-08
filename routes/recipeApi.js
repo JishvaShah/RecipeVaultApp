@@ -24,14 +24,27 @@ router.post("/create-recipe", async (req, res) => {
 
 
 //getting all recipe IDs that a user has liked or saved. (Favourites Page)
-router.get("/liked-recipe/ids", async (req,res) => {
-  const { userId } = req.body; 
-  const result = await myDB.getSavedRecipeIds(userId);
-  if (result.error) {
-    return res.status(403).json(result);
+router.post("/update-like/:recipeId", async (req, res) => {
+  const { recipeId } = req.params;
+  const { userId, isLiked } = req.body;
+
+  try {
+    // Log the data received from the frontend
+    console.log("Received data from frontend:");
+    console.log("Recipe ID:", recipeId);
+    console.log("User ID:", userId);
+    console.log("Is Liked:", isLiked);
+
+    // Call the database method to update the liked status of the recipe
+    const result = await myDB.updateLikedRecipes(recipeId, userId, isLiked);
+
+    res.status(200).json({ message: "Recipe liked status updated successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Failed to update recipe liked status" });
   }
-  res.json(result);
 });
+
 
 //getting all recipes based on the user ID. (My Recipes Page)
 router.get("/user-recipes", async (req, res) => {
