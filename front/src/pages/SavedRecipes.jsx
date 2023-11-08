@@ -6,7 +6,8 @@ import { SearchBar } from "../components/SearchBar";
 
 export const SavedRecipes = () => {
   const [recipes, setRecipes] = useState([]);
-  const [likedRecipes, setLikedRecipes] = useState([]);
+  const [keyword, setKeyword] = useState("");
+  const [showLikedRecipes, setShowLikedRecipes] = useState(false);
   const userID = useGetUserID();
 
   useEffect(() => {
@@ -60,13 +61,43 @@ export const SavedRecipes = () => {
     }
   };
 
+  // Function to filter recipes based on keyword
+  const filteredRecipes = recipes.filter((recipe) => {
+    const { category, name } = recipe;
+    const lowercaseKeyword = keyword.toLowerCase();
+    return (
+      (category.toLowerCase().includes(lowercaseKeyword) ||
+        name.toLowerCase().includes(lowercaseKeyword)) &&
+      (!showLikedRecipes || recipe.isLiked)
+    );
+  });
+
   return (
     <div>
       <h1 className="recipe-title">-My Recipes-</h1>
-      <SearchBar />
+      <div className="container py-4">
+        <div className="row">
+          <SearchBar keyword={keyword} setKeyword={setKeyword} />
+          <div className="col-md-3 mx-auto">
+            <div className="form-check">
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id="showLikedRecipes"
+                checked={showLikedRecipes}
+                onChange={() => setShowLikedRecipes(!showLikedRecipes)}
+              />
+              <label className="form-check-label" htmlFor="showLikedRecipes">
+                Show Only Liked
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="recipe-grid">
-        {Array.isArray(recipes) ? (
-          recipes.map((recipe) => (
+        {filteredRecipes.length > 0 ? (
+          filteredRecipes.map((recipe) => (
             <div key={recipe._id} className="recipe-card">
               <div className="card">
                 <img
@@ -90,7 +121,7 @@ export const SavedRecipes = () => {
             </div>
           ))
         ) : (
-          <p>Loading recipes...</p>
+          <p>No recipes found for the keyword.</p>
         )}
       </div>
     </div>
