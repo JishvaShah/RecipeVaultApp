@@ -8,12 +8,12 @@ export const CreateRecipes = () => {
   const [cookies, _] = useCookies(["access_token"]);
   const [recipe, setRecipe] = useState({
     name: "",
-    description: "",
     ingredients: [],
     instructions: "",
     imageUrl: "",
-    category: "",
+    category:"",
     cookingTime: 0,
+    isliked:0,
     userOwner: userID,
   });
 
@@ -39,7 +39,7 @@ export const CreateRecipes = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      console.log(recipe);
+      // console.log(recipe);
       const response = await fetch("/api/recipe/create-recipe", {
         method: "POST",
         headers: {
@@ -65,7 +65,7 @@ export const CreateRecipes = () => {
     <div className="container mt-4">
       <div className="row justify-content-center">
         <div className="col-md-6">
-          <h2 className="text-center">Create Recipe</h2>
+        <h2 className="text-center">Create Recipe</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="name" className="form-label">
@@ -80,12 +80,11 @@ export const CreateRecipes = () => {
                 onChange={handleChange}
               />
             </div>
-
             <div className="mb-3">
               <label htmlFor="ingredients" className="form-label">
                 Ingredients
               </label>
-              <br />
+              <br/>
               {recipe.ingredients.map((ingredient, index) => (
                 <input
                   key={index}
