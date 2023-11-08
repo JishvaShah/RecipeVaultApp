@@ -1,23 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Agbalumo&family=Montserrat&display=swap");
+
 img.maxH {
   max-height: 500px;
 }
 
-h1.headingStyle {
-  font-size: 4rem;
-  color: whitesmoke;
-  margin: 50px;
-  font-family: "Emmeline";
+.img-fluid {
+  height: 650px;
+  width: 100%;
 }
 
 .image-container {
   position: relative;
+  /* width: 100%; */
 }
 
 .overlay-text {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   top: 5px;
   left: 5px;
-  color: #fff; /* Text color */
+  color: #fff;
   padding: 10px;
-  width: 200px;
+  height: 100%;
+  width: 100%;
+}
+
+h1.headingStyle {
+  font-size: 7rem;
+  text-align: center;
+  color: #ffebcc;
+  font-family: "Agbalumo", serif;
+}
+.home-paragraph-text {
+  font-size: 20px;
+  /* font-weight: 600; */
+  text-align: center;
+  color: #ffebcc;
+  font-family: "Montserrat", serif;
+  width: 50%;
 }

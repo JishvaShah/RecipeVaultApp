@@ -24,8 +24,14 @@ export const NavBar = () => {
   return (
     <div>
       <nav
-        className="navbar navbar-expand-lg border-bottom"
-        style={{ backgroundColor: "#e3f2fd" }}
+        className="navbar navbar-expand-lg "
+        style={{
+          backgroundColor: "#ffebcc",
+          fontFamily: "Montserrat",
+          fontWeight: 600,
+          padding: "10px 20px",
+          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1);",
+        }}
       >
         <div className="container-fluid">
           <div className="navbar-brand">
