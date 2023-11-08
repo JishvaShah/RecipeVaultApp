@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom";
+import { useCookies } from "react-cookie";
 import "./Carousel.css";
 
 export const Carousel = () => {
+  const [cookies] = useCookies(["access_token"]);
   return (
     <>
       <div className="container" style={{ maxWidth: "100%" }}>
@@ -19,7 +22,15 @@ export const Carousel = () => {
                 <br /> and managing their favorite recipes. Our app simplifies
                 saving, creating, and organizing recipes, improving your cooking
                 experience.
-                <br /> Start by creating and saving amazing recipes today!{" "}
+                <br />
+                <span>
+                  <Link
+                    to={cookies.access_token ? "/create-recipe" : "/login"}
+                    style={{ textDecoration: "none", color: "blueviolet" }}
+                  >
+                    Create an amazing recipe today!
+                  </Link>
+                </span>{" "}
               </p>
             </div>
           </div>

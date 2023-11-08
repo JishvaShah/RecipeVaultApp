@@ -119,7 +119,7 @@ export const SavedRecipes = () => {
             </div>
           ))
         ) : (
-          <p>No recipes found for the keyword.</p>
+          <p>No recipes found. Create a new recipe today!</p>
         )}
       </div>
     </div>
