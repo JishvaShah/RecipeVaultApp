@@ -10,7 +10,7 @@ export const NavBar = () => {
   const logout = () => {
     setCookies("access_token", "");
     window.localStorage.removeItem("userID");
-    window.location.href = "/login";
+    window.location.href = "/";
   };
 
   const handleProtectedRoute = () => {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useGetUserID } from "../hook/useGetUserID";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
@@ -11,18 +11,17 @@ export const CreateRecipes = () => {
     ingredients: [],
     instructions: "",
     imageUrl: "",
-    category:"",
+    category: "",
     cookingTime: 0,
     isliked:false,
     userOwner: userID,
   });
-
-  if(!userID){
-    window.location.href="/";
-    return;    
-  }
-
   const navigate = useNavigate();
+
+  if (!userID) {
+    window.location.href = "/";
+    return;
+  }
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -70,7 +69,7 @@ export const CreateRecipes = () => {
     <div className="container mt-4">
       <div className="row justify-content-center">
         <div className="col-md-6">
-        <h2 className="text-center">Create Recipe</h2>
+          <h2 className="text-center">Create Recipe</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="name" className="form-label">
@@ -89,7 +88,7 @@ export const CreateRecipes = () => {
               <label htmlFor="ingredients" className="form-label">
                 Ingredients
               </label>
-              <br/>
+              <br />
               {recipe.ingredients.map((ingredient, index) => (
                 <input
                   key={index}
