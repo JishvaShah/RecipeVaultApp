@@ -31,5 +31,8 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "vite": "^4.4.5"
   },
-  "proxy": "http://localhost:3000"
+  "proxy": "http://localhost:3000",
+  "engines": {
+    "node": ">=18.13.0 <19.0.0"
+  }
 }
