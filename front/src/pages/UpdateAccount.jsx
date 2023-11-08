@@ -4,7 +4,7 @@ import { useCookies } from "react-cookie";
 import { toast } from "react-toastify";
 
 export const UpdateAccount = () => {
-  const [email, setEmail] = useState("test@gmail.com");
+  const [email, setEmail] = useState("");
   const [deleteLoading, setDeleteLoading] = useState(false);
   const [passwordLoading, setPasswordLoading] = useState(false);
   const [password, setPassword] = useState("");

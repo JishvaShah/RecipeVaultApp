@@ -12,17 +12,14 @@ router.get("/get-recipe/:userID", async (req, res) => {
   res.json(result);
 });
 
-
 //creating and inserting new recipe
 router.post("/create-recipe", async (req, res) => {
   const result = await myDB.createRecipe(req.body);
-  console.log(result);
   if (result.error) {
     return res.status(503).json(result);
   }
   res.json(result);
 });
-
 
 //getting all recipe IDs that a user has liked or saved. (Favourites Page)
 router.post("/update-like/:recipeId", async (req, res) => {
@@ -39,12 +36,15 @@ router.post("/update-like/:recipeId", async (req, res) => {
     // Call the database method to update the liked status of the recipe
     const result = await myDB.updateLikedRecipes(recipeId, userId, isLiked);
 
-    res.status(200).json({ message: "Recipe liked status updated successfully" });
+    res
+      .status(200)
+      .json({ message: "Recipe liked status updated successfully" });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Failed to update recipe liked status" });
   }
 });
+
 
 router.delete("/delete-recipe/:recipeId", async (req, res) => {
   const { recipeId } = req.params;
@@ -69,6 +69,7 @@ router.delete("/delete-recipe/:recipeId", async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Failed to delete the recipe" });
+
   }
 });
 
