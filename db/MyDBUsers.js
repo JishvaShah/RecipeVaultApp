@@ -28,7 +28,6 @@ function MyMongoDB() {
       const newUser = await userCollection.insertOne({
         email,
         password: hashedPassword,
-        savedRecipes: [],
       });
       return {
         message: "User Registered Successfully!",
@@ -150,38 +149,6 @@ function MyMongoDB() {
     }
   };
 
-  myDB.saveRecipe = async function (recipeId, userId) {
-    const { client, db } = await connect();
-    const userCollection = db.collection("Users");
-    const recipeCollection = db.collection("Recipes");
-    try {
-      const user = await userCollection.findOne({
-        _id: new ObjectId(userId),
-      });
-      if (!user) {
-        return { error: true, message: "User does not exists!" };
-      }
-      const recipe = await recipeCollection.findOne({
-        _id: new ObjectId(recipeId),
-      });
-      if (!recipe) {
-        return { error: true, message: "Recipe does not exists!" };
-      }
-      await userCollection.updateOne(
-        { _id: new ObjectId(userId) },
-        { $addToSet: { savedRecipes: recipeId } }
-      );
-      return {
-        message: "Saved Recipe Successfully!",
-        error: false,
-      };
-    } catch (err) {
-      console.log(err);
-      return { error: true, message: "Some unknown error occured. Try Again!" };
-    } finally {
-      await client.close();
-    }
-  };
   return myDB;
 }
 

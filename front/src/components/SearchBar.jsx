@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-export const SearchBar = ({ keyword, setKeyword }) => {
+export const SearchBar = ({ keyword, setKeyword, setCurrentPage }) => {
   return (
     <>
       <div className="col-md-9 mx-auto">
@@ -11,6 +11,7 @@ export const SearchBar = ({ keyword, setKeyword }) => {
             value={keyword}
             onChange={(e) => {
               setKeyword(e.target.value);
+              setCurrentPage(1);
             }}
             placeholder="Search Your Favourite Recipe..."
             id="example-search-input"
@@ -32,4 +33,5 @@ export const SearchBar = ({ keyword, setKeyword }) => {
 SearchBar.propTypes = {
   keyword: PropTypes.string.isRequired,
   setKeyword: PropTypes.func.isRequired,
+  setCurrentPage: PropTypes.func.isRequired,
 };
