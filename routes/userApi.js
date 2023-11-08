@@ -33,16 +33,6 @@ router.get("/user-by-id", verifyAccessToken, async (req, res) => {
   res.json(result);
 });
 
-router.put("/save-recipe", verifyAccessToken, async (req, res) => {
-  const { recipeId } = req.body;
-  const userId = req.userId;
-  const result = await myDB.saveRecipe(recipeId, userId);
-  if (result.error) {
-    return res.status(403).json(result);
-  }
-  res.json(result);
-});
-
 router.put("/update-password", verifyAccessToken, async (req, res) => {
   const userId = req.userId;
   const { newPassword } = req.body;
