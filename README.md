@@ -17,3 +17,5 @@ Gaurang Jotwani
 6. Then run -> npm run build
 7. Now, you can run backend independently from the "root" folder by running -> npm start
 8. You can also run frontend independently from the "front" folder by running -> npm run dev
+
+# Screenshots:

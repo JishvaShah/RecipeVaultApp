@@ -1,4 +1,5 @@
 import { Carousel } from "../components/Carousel";
+
 // import { RecipeGallery } from "../components/RecipeGallery";
 
 export const Home = () => {
