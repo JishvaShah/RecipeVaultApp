@@ -27,13 +27,7 @@ router.post("/update-like/:recipeId", async (req, res) => {
   const { userId, isLiked } = req.body;
 
   try {
-    // Log the data received from the frontend
-    console.log("Received data from frontend:");
-    console.log("Recipe ID:", recipeId);
-    console.log("User ID:", userId);
-    console.log("Is Liked:", isLiked);
-
-    // Call the database method to update the liked status of the recipe
+    
     const result = await myDB.updateLikedRecipes(recipeId, userId, isLiked);
 
     res
