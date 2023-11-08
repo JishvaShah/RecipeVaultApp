@@ -17,7 +17,6 @@ export const UpdateAccount = () => {
       const token = cookies.access_token;
       if (cookies.access_token) {
         try {
-          // Replace 'your-api-endpoint' with the actual endpoint to fetch the user's email
           const response = await fetch("/api/user/user-by-id", {
             method: "GET",
             headers: {
@@ -27,7 +26,7 @@ export const UpdateAccount = () => {
 
           if (response.ok) {
             const data = await response.json();
-            setEmail(data.user.email); // Assuming the response contains the user's email
+            setEmail(data.user.email);
           } else {
             throw new Error("Failed to fetch email");
           }
