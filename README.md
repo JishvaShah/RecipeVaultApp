@@ -43,7 +43,7 @@ https://recipevault.onrender.com/
 
 ## Public Video Demnstration Link:
 
-[https://drive.google.com/file/d/1aN6UCNfpBZ_d1x0x_K0o53-pjqwKK73w/view?usp=drive_link](https://youtu.be/-kkwOGH1mV0)
+https://youtu.be/-kkwOGH1mV0
 
 ## Mockups:
 
