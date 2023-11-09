@@ -27,9 +27,11 @@ This Recipe Vault App was created by the following individuals:
 
 ![image](https://github.com/JishvaShah/RecipeVaultApp/assets/48160866/7c24adca-80a9-45ea-a7c5-5b54f82e25da)
 
+![project3-thumbnail](https://github.com/JishvaShah/RecipeVaultApp/assets/77269630/17eb8fab-820c-4e53-8e77-cd728ba221a7)
+
 ## Thumbnail link:
 
-https://drive.google.com/file/d/1CbeecVrXwPvuNPcgCcBRUdWdWYI8R6u6/view?usp=sharing
+https://github.com/JishvaShah/RecipeVaultApp/assets/77269630/17eb8fab-820c-4e53-8e77-cd728ba221a7
 
 ## Slides link:
 
