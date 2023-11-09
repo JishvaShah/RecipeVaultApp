@@ -2,6 +2,18 @@
 
 Welcome to the Recipe Vault, where you can create, save, and manage your favorite recipes! This web application is built using Express.js for the backend, MongoDB as the database, and React + Vite for the frontend. With Recipe Vault, you can register, log in securely using JSON Web Tokens (JWT), and enjoy the following features:
 
+## Features
+
+- **User Registration and Authentication:** Users can register with a unique username and securely log in using JWT for authentication. Passwords are securely hashed using bcrypt for added security.
+
+- **Recipe Management:** Users can create, edit, and delete their recipes, providing details such as title, ingredients, instructions, and category.
+
+- **Recipe Storage:** All your saved recipes are stored in the Recipe Vault, and you can easily access them.
+
+- **Search and Filter:** You can search for recipes by category and title, making it easy to find your favorite recipes.
+
+- **Favorite Recipes:** Mark your favorite recipes and filter your collection to quickly access them.
+
 ## Authors
 
 This Recipe Vault App was created by the following individuals:
@@ -34,18 +46,6 @@ https://drive.google.com/file/d/1aN6UCNfpBZ_d1x0x_K0o53-pjqwKK73w/view?usp=drive
 ## Mockups:
 
 https://www.figma.com/file/jrteTptsGmrBh8zW7e5u8n/NEU-Web-Development-Project-3?type=design&node-id=0-1&mode=design
-
-## Features
-
-- **User Registration and Authentication:** Users can register with a unique username and securely log in using JWT for authentication. Passwords are securely hashed using bcrypt for added security.
-
-- **Recipe Management:** Users can create, edit, and delete their recipes, providing details such as title, ingredients, instructions, and category.
-
-- **Recipe Storage:** All your saved recipes are stored in the Recipe Vault, and you can easily access them.
-
-- **Search and Filter:** You can search for recipes by category and title, making it easy to find your favorite recipes.
-
-- **Favorite Recipes:** Mark your favorite recipes and filter your collection to quickly access them.
 
 ## Getting Started
 
