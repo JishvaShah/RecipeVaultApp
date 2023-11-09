@@ -35,7 +35,7 @@ https://github.com/JishvaShah/RecipeVaultApp/assets/77269630/17eb8fab-820c-4e53-
 
 ## Slides link:
 
-https://docs.google.com/presentation/d/1TLhR-NRIvbFutsjqHHJijq4pvHEE3MmNezBmUXGmAsw/edit?usp=sharing
+[https://docs.google.com/presentation/d/1TLhR-NRIvbFutsjqHHJijq4pvHEE3MmNezBmUXGmAsw/edit?usp=sharing](https://docs.google.com/presentation/d/1h7ULgcu_CKWZSXtSIcu_Cn9Ht23a9X6YeT3LJNcIUZw/edit?usp=sharing)
 
 ## Deployed Website Link:
 
@@ -43,7 +43,7 @@ https://recipevault.onrender.com/
 
 ## Public Video Demnstration Link:
 
-https://drive.google.com/file/d/1aN6UCNfpBZ_d1x0x_K0o53-pjqwKK73w/view?usp=drive_link
+[https://drive.google.com/file/d/1aN6UCNfpBZ_d1x0x_K0o53-pjqwKK73w/view?usp=drive_link](https://youtu.be/-kkwOGH1mV0)
 
 ## Mockups:
 
