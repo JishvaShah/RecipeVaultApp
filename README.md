@@ -11,7 +11,9 @@ This Recipe Vault App was created by the following individuals:
 
 ## Screenshots:
 
-![image](https://github.com/GaurangJotwani/StoreLocator/assets/77269630/7d96000c-f766-4ece-b6a8-9e8b45f88d7c)
+![image](https://github.com/JishvaShah/RecipeVaultApp/assets/48160866/75450361-b412-4594-9fe0-bf517c8fa6ed)
+
+![image](https://github.com/JishvaShah/RecipeVaultApp/assets/48160866/7c24adca-80a9-45ea-a7c5-5b54f82e25da)
 
 ## Thumbnail link:
 
