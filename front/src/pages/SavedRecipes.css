@@ -16,6 +16,12 @@ div.search-container{
   width: 60%;
 }
 
+.search-info-text{
+  text-align: center;
+  color: #f34242 ;
+  /* font-weight: 300; */
+}
+
 .recipe-card {
   flex-basis: 50%;
   margin: 10px;

@@ -9,7 +9,7 @@ export const SavedRecipes = () => {
   const [keyword, setKeyword] = useState("");
   const [showLikedRecipes, setShowLikedRecipes] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const recipesPerPage = 6;
+  const recipesPerPage = 3;
 
   const userID = useGetUserID();
 
@@ -109,6 +109,11 @@ export const SavedRecipes = () => {
   return (
     <div>
       <h1 className="recipe-title">-My Recipes-</h1>
+      <div className="col-md-12 mt-2">
+            <p className="search-info-text">
+               Search recipes by their name or cuisine 
+            </p>
+          </div>
       <div className="container py-4 recipe-grid">
         <div className="row search-container">
           <SearchBar
