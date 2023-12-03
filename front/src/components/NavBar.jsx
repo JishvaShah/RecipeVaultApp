@@ -120,7 +120,18 @@ export const NavBar = () => {
                   style={{ textDecoration: "none", color: "inherit" }}
                   onClick={handleProtectedRoute}
                 >
-                  My Recipes
+                  All Recipes
+                </Link>
+              </div>
+            </span>
+            <span className="navbar-text me-4">
+              <div className="nav-link">
+                <Link
+                  to={cookies.access_token ? "/favourites" : "/login"}
+                  style={{ textDecoration: "none", color: "inherit" }}
+                  onClick={handleProtectedRoute}
+                >
+                  Favorites
                 </Link>
               </div>
             </span>

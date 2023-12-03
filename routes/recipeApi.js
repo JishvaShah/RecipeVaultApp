@@ -21,15 +21,13 @@ router.post("/create-recipe", async (req, res) => {
   res.json(result);
 });
 
-//getting all recipe IDs that a user has liked or saved. (Favourites Page)
+//updating isLiked variable based on user's like/dislike choice
 router.post("/update-like/:recipeId", async (req, res) => {
   const { recipeId } = req.params;
   const { userId, isLiked } = req.body;
 
-  try {
-    
+  try {    
     const result = await myDB.updateLikedRecipes(recipeId, userId, isLiked);
-
     res
       .status(200)
       .json({ message: "Recipe liked status updated successfully" });
