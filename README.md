@@ -119,3 +119,5 @@ Before you begin, make sure you have the following software installed:
 - **Database**: MongoDB
 - **Authentication**: JSON Web Tokens (JWT) and Bcrypt for password hashing
 - **Cookies**: React Cookies for maintaining user sessions
+
+- 
