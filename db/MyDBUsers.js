@@ -72,6 +72,30 @@ function MyMongoDB() {
     }
   };
 
+  myDB.findByUsernameAndPassword = async function ({ email, password }) {
+    const { client, db } = await connect();
+    const userCollection = db.collection("Users");
+    try {
+      const user = await userCollection.findOne({ email });
+      if (!user) {
+        return { error: true, message: "User does not exists!" };
+      }
+
+      const isPasswordValid = await bcrypt.compare(password, user.password);
+
+      if (!isPasswordValid) {
+        return { error: true, message: "Username or password is Incorrect!" };
+      }
+
+      return user;
+    } catch (err) {
+      console.log(err);
+      return null;
+    } finally {
+      await client.close();
+    }
+  };
+
   myDB.getByID = async function (userId) {
     const { client, db } = await connect();
     const userCollection = db.collection("Users");

@@ -5,6 +5,7 @@ import logger from "morgan";
 import userRouter from "./routes/userApi.js";
 import recipeRouter from "./routes/recipeApi.js";
 import { fileURLToPath } from "url";
+import "./passport.js";
 
 //ES6 modules don't have __dirname
 const __filename = fileURLToPath(import.meta.url);
