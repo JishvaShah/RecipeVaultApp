@@ -119,3 +119,10 @@ Before you begin, make sure you have the following software installed:
 - **Database**: MongoDB
 - **Authentication**: JSON Web Tokens (JWT) and Bcrypt for password hashing
 - **Cookies**: React Cookies for maintaining user sessions
+
+### Code Review
+You really did a good job! The website has a very smooth flow and the code structure is very clear and easy to understand.
+Here are some small things that could be better:
+1. You can add some comment lines to make your code more understandable.
+2. Cooking time can include units, for example, minutes.
+Overall, I really like your website!
