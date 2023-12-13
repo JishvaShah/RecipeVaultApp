@@ -14,15 +14,11 @@ Welcome to the Recipe Vault, where you can create, save, and manage your favorit
 
 - **Favorite Recipes:** Mark your favorite recipes and filter your collection to quickly access them.
 
-## Usability Study Reports
+## Final Project Enhancements (Commit# 34dcc4f5de10fb8e675cd6036ad65fb73caea7cf)
 
 During the development of Recipe Vault, we conducted several usability studies to gather feedback on the application's functionality and user experience. These studies involved participants performing specific tasks while we observed their interactions with the app, and collecting their feedback through surveys and interviews.
 
 Based on these insights, we made targeted enhancements to improve the Recipe Vault's usability and accessibility.
-
-## Final Project Enhancements
-
-In our final project iteration, we focused on optimizing the user experience and accessibility of the Recipe Vault. Here's what's new:
 
 - **Ingredient List Management:** We've included delete buttons for individual ingredients in the create recipe form for better user control.
 - **UI Feedback Improvements:** Replaced the traditional alert with a more subtle message toast when users create a new recipe.
@@ -52,6 +48,7 @@ This Recipe Vault App was created by the following individuals:
 ![image](https://github.com/JishvaShah/RecipeVaultApp/assets/48160866/7c24adca-80a9-45ea-a7c5-5b54f82e25da)
 
 ![project3-thumbnail](https://github.com/JishvaShah/RecipeVaultApp/assets/77269630/17eb8fab-820c-4e53-8e77-cd728ba221a7)
+
 
 ## Accessiblity Report - Lighthouse Screenshots:
 
