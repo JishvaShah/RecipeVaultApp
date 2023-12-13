@@ -18,8 +18,6 @@ Welcome to the Recipe Vault, where you can create, save, and manage your favorit
 
 During the development of Recipe Vault, we conducted several usability studies to gather feedback on the application's functionality and user experience. These studies involved participants performing specific tasks while we observed their interactions with the app, and collecting their feedback through surveys and interviews.
 
-Usability Study
-
 Based on these insights, we made targeted enhancements to improve the Recipe Vault's usability and accessibility.
 
 ## Final Project Enhancements
