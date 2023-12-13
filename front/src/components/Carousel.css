@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Agbalumo&family=Montserrat&display=swap");
 
 img.maxH {
-  max-height: 500px;
+  max-height: 650px;
 }
 
 .img-fluid {
-  height: 650px;
+  height: 100%;
   width: 100%;
 }
 

@@ -32,15 +32,15 @@ export const Favourites = () => {
     fetchRecipes();
   }, [userID]);
 
-
   // Function to filter recipes based on keyword
   // const filteredRecipes = recipes.filter((recipe) => recipe.isLiked);
 
-  const filteredRecipes = recipes.filter((recipe) => 
-  recipe.isLiked &&
-  (recipe.category.toLowerCase().includes(keyword.toLowerCase()) ||
-    recipe.name.toLowerCase().includes(keyword.toLowerCase()))
-);
+  const filteredRecipes = recipes.filter(
+    (recipe) =>
+      recipe.isLiked &&
+      (recipe.category.toLowerCase().includes(keyword.toLowerCase()) ||
+        recipe.name.toLowerCase().includes(keyword.toLowerCase()))
+  );
 
   const totalPages = Math.ceil(filteredRecipes.length / recipesPerPage);
   const startIndex = (currentPage - 1) * recipesPerPage;
@@ -51,10 +51,10 @@ export const Favourites = () => {
     <div>
       <h1 className="recipe-title">- Your favorite recipes -</h1>
       <div className="col-md-12 mt-2">
-            <p className="search-info-text">
-               Search recipes by their name or cuisine 
-            </p>
-          </div>
+        <p className="search-info-text" style={{color: 'black'}}>
+          Search recipes by their name or cuisine
+        </p>
+      </div>
       <div className="container py-4 recipe-grid">
         <div className="row search-container">
           <SearchBar
@@ -78,23 +78,27 @@ export const Favourites = () => {
                   />
                 </div>
                 <div className="card-body">
-                  <h3 className="card-title">{recipe.name}</h3>
+                  <h2 className="card-title">{recipe.name}</h2>
                   <p className="card-text">
                     <span className="card-text-title">Ingredients: </span>
                     <br />
-                    <ul>
-                      {recipe.ingredients.map((ingredient, index) => (
-                        <li key={index}>{ingredient}</li>
-                      ))}
-                    </ul>
                   </p>
+                  <ul>
+                    {recipe.ingredients.map((ingredient, index) => (
+                      <li key={index}>{ingredient}</li>
+                    ))}
+                  </ul>
+
                   <p className="card-text">
                     <span className="card-text-title">Instructions: </span>
                     <br />
                     {recipe.instructions}
                   </p>
+
                   <p className="card-text">
-                    Cooking Time: {recipe.cookingTime} mins
+                  <span className="card-text-title">Cooking Time: </span>
+                    <br />
+                    {recipe.cookingTime} mins
                   </p>
                 </div>
               </div>

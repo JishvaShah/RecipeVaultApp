@@ -18,6 +18,7 @@ export const SearchBar = ({ keyword, setKeyword, setCurrentPage }) => {
           />
           <span className="input-group-append mx-2">
             <button
+              aria-label="search button"
               className="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5"
               type="button"
             >

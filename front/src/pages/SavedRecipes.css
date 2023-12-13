@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Agbalumo&family=Montserrat&display=swap");
 
+
+
 .recipe-title{
     text-align: center;
     font-family: "Agbalumo", serif;
@@ -7,7 +9,8 @@
     padding: 1%;
 }
 .card {
-  border: none;
+  border: 2px solid #ffebcc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .recipe-grid {
   display: flex;
@@ -20,8 +23,9 @@ div.search-container{
 }
 
 .search-info-text{
+
   text-align: center;
-  color: #f34242 ;
+  color: black ;
   /* font-weight: 300; */
 }
 

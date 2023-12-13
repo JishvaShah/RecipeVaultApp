@@ -110,10 +110,10 @@ export const SavedRecipes = () => {
     <div className="recipe-container">
       <h1 className="recipe-title">-My Recipes-</h1>
       <div className="col-md-12 mt-2">
-            <p className="search-info-text">
-               Search recipes by their name or cuisine 
-            </p>
-          </div>
+        <p className="search-info-text" >
+          Search recipes by their name or cuisine
+        </p>
+      </div>
       <div className="container py-4 recipe-grid">
         <div className="row search-container">
           <SearchBar
@@ -124,6 +124,7 @@ export const SavedRecipes = () => {
           <div className="col-md-3 mx-auto">
             <div className="form-check">
               <input
+
                 type="checkbox"
                 className="form-check-input"
                 id="showLikedRecipes"
@@ -154,24 +155,8 @@ export const SavedRecipes = () => {
                   />
                 </div>
                 <div className="card-body">
-                  <h3 className="card-title">{recipe.name}</h3>
-                  <p className="card-text">
-                    <h6 className="card-text-title">Ingredients: </h6>
-                    <ul>
-                      {recipe.ingredients.map((ingredient, index) => (
-                        <li key={index}>{ingredient}</li>
-                      ))}
-                    </ul>
-                  </p>
-                  <p className="card-text">
-                    <h6 className="card-text-title">Instructions: </h6>
-                    {recipe.instructions}
-                  </p>
-                  <p className="card-text">
-                  <h6 className="card-text-title">Cooking Time: </h6>
-                     {recipe.cookingTime} mins
-                  </p>
-                  <div className="card-footer">
+                  <div className="d-flex justify-content-between align-items-center">
+                    <h2 className="card-title">{recipe.name}</h2>
                     <LikeButton
                       className="like-button"
                       isLiked={recipe.isLiked}
@@ -179,11 +164,33 @@ export const SavedRecipes = () => {
                         toggleLike(recipe._id, recipe.isLiked)
                       }
                     />
+                  </div>
+                  <div className="card-text">
+                    <div className="card-text-title">Ingredients: </div>
+                    <ul>
+                      {recipe.ingredients.map((ingredient, index) => (
+                        <li key={index}>{ingredient}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="card-text">
+                    <div className="card-text-title">Instructions: </div>
+                    <p>{recipe.instructions}</p>
+                  </div>
+                  <div className="card-text">
+                    <div className="card-text-title">Cuisine: </div>
+                    <p>{recipe.category}</p>
+                  </div>
+                  <div className="card-text">
+                    <div className="card-text-title">Cooking Time: </div>
+                    <p>{recipe.cookingTime} mins</p>
+                  </div>
+                  <div className="card-footer d-flex justify-content-end">
                     <button
                       className="delete-button"
                       onClick={() => deleteRecipe(recipe._id)}
                     >
-                      X
+                      Delete
                     </button>
                   </div>
                 </div>
