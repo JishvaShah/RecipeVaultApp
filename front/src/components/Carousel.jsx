@@ -12,7 +12,7 @@ export const Carousel = () => {
             <img
               src="https://cdn.wallpapersafari.com/1/5/zrIGxJ.jpg"
               alt="Your Image"
-              className="img-fluid"
+              className="img-fluid maxH"
             />
             <div className="overlay-text">
               <h1 className="headingStyle">Recipe Vault</h1>

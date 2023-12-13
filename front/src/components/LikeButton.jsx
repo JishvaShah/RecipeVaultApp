@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 const LikeButton = ({ isLiked, onToggleLike }) => {
   return (
-    <button onClick={onToggleLike}>
+    <button onClick={onToggleLike} aria-label="like button">
       {isLiked ? <FaHeart style={{ color: "#f34242" }} /> : <FaRegHeart />}
     </button>
   );

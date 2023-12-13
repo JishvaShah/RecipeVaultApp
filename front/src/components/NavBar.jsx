@@ -27,7 +27,7 @@ export const NavBar = () => {
       <nav className="navbar navbar-expand-lg colors">
         <div className="container-fluid">
           <div className="navbar-brand">
-            <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+            <Link to="/" aria-label="Our Website logo" style={{ textDecoration: "none", color: "inherit" }}>
               <FontAwesomeIcon icon={faKitchenSet} />
             </Link>
           </div>
@@ -117,20 +117,20 @@ export const NavBar = () => {
                   <li className="nav-item">
                     <div className="nav-link">
                       <Link
-                        onClick={logout}
+                        to="/update-account"
                         style={{ textDecoration: "none", color: "inherit" }}
                       >
-                        Logout
+                        Account
                       </Link>
                     </div>
                   </li>
                   <li className="nav-item">
                     <div className="nav-link">
                       <Link
-                        to="/update-account"
+                        onClick={logout}
                         style={{ textDecoration: "none", color: "inherit" }}
                       >
-                        Account
+                        Logout
                       </Link>
                     </div>
                   </li>

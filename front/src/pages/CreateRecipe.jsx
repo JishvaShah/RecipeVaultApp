@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useGetUserID } from "../hook/useGetUserID";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import { toast } from "react-toastify";
 import "./CreateRecipe.css";
 
 export const CreateRecipes = () => {
@@ -41,6 +42,12 @@ export const CreateRecipes = () => {
     setRecipe({ ...recipe, ingredients });
   };
 
+  const handleDeleteIngredient = (index) => {
+    const ingredients = [...recipe.ingredients];
+    ingredients.splice(index, 1);
+    setRecipe({ ...recipe, ingredients });
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -54,7 +61,9 @@ export const CreateRecipes = () => {
       });
 
       if (response.ok) {
-        alert("Recipe Created");
+        toast.success("Recipe created successfully!", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
         navigate("/saved-recipes");
       } else {
         // Handle error response
@@ -67,7 +76,7 @@ export const CreateRecipes = () => {
 
   return (
     <div className="container mt-4">
-      <div className="row justify-content-center">
+      <div className="recipe row justify-content-center">
         <div className="col-md-6">
           <h2 className="text-center">-Create Recipe-</h2>
           <form onSubmit={handleSubmit}>
@@ -92,15 +101,23 @@ export const CreateRecipes = () => {
               </label>
               <br />
               {recipe.ingredients.map((ingredient, index) => (
-                <input
-                  key={index}
-                  type="text"
-                  name="ingredients"
-                  value={ingredient}
-                  onChange={(event) => handleIngredientChange(event, index)}
-                  className="form-control mb-2"
-                  required
-                />
+                 <div key={index} className="d-flex mb-2">
+                 <input
+                   type="text"
+                   name="ingredients"
+                   value={ingredient}
+                   onChange={(event) => handleIngredientChange(event, index)}
+                   className="form-control"
+                   required
+                 />
+                 <button
+                   type="button"
+                   className="btn btn-danger ms-2"
+                   onClick={() => handleDeleteIngredient(index)}
+                 >
+                   X
+                 </button>
+               </div>
               ))}
               <div className="mb-3 d-flex justify-content-center">
                 <button
@@ -155,7 +172,7 @@ export const CreateRecipes = () => {
             </div>
             <div className="mb-3">
               <label htmlFor="cookingTime" className="form-label">
-                Cooking Time (minutes)
+                Cooking Time (approx. minutes)
               </label>
               <input
                 type="number"
