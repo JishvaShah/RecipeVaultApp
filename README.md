@@ -14,6 +14,32 @@ Welcome to the Recipe Vault, where you can create, save, and manage your favorit
 
 - **Favorite Recipes:** Mark your favorite recipes and filter your collection to quickly access them.
 
+## Usability Study Reports
+
+During the development of Recipe Vault, we conducted several usability studies to gather feedback on the application's functionality and user experience. These studies involved participants performing specific tasks while we observed their interactions with the app, and collecting their feedback through surveys and interviews.
+
+Usability Study
+
+Based on these insights, we made targeted enhancements to improve the Recipe Vault's usability and accessibility.
+
+## Final Project Enhancements
+
+In our final project iteration, we focused on optimizing the user experience and accessibility of the Recipe Vault. Here's what's new:
+
+- **Ingredient List Management:** We've included delete buttons for individual ingredients in the create recipe form for better user control.
+- **UI Feedback Improvements:** Replaced the traditional alert with a more subtle message toast when users create a new recipe.
+- **Like Button Placement:** Moved the like button to the top-left of the recipe card to make it more accessible.
+- **Delete Button Iconography:** Changed the cross icon to a more universally recognizable delete button for recipe deletion.
+- **Category Display:** Added the category of each recipe on its card to provide more information at a glance.
+- **Accessibility Commitment:** We've guaranteed full accessibility for screen readers and comprehensive keyboard navigation, achieving a 100% Lighthouse accessibility score.
+- **Navigation Bar Redesign:** Simplified the Nav-Bar by placing the main logo on the left and all other page links on the right for better usability.
+- **Form Usability:** Implemented placeholders in the create recipe form to provide visual cues for users, enhancing the overall usability of the form.
+- **Form Validation:** Added validation checks to ensure all form information is correct before submission.
+- **Design Update:** A complete typography and color palette update to match our brand's theme, providing a consistent and visually appealing user experience.
+- **Typography Used:** Montserrat, Agbalumo, serif
+- **Color Palette Used:** #f34242, #ffebcc, #5a6268 white(#fff), black(#000)
+- **Security and Performance:** Introduced authentication with Passport for security
+
 ## Authors
 
 This Recipe Vault App was created by the following individuals:
@@ -34,15 +60,24 @@ This Recipe Vault App was created by the following individuals:
 https://github.com/JishvaShah/RecipeVaultApp/assets/77269630/17eb8fab-820c-4e53-8e77-cd728ba221a7
 
 ## Slides link:
+
 https://docs.google.com/presentation/d/1h7ULgcu_CKWZSXtSIcu_Cn9Ht23a9X6YeT3LJNcIUZw/edit?usp=sharing
 
 ## Deployed Website Link:
 
 https://recipevault.onrender.com/
 
-## Public Video Demnstration Link:
+## Public Video Demnstration Link - P3:
 
 https://youtu.be/-kkwOGH1mV0
+
+## Public Video Demnstration Link - Final Project:
+
+[TODO]
+
+## Usability Study Report - Final Project:
+
+https://docs.google.com/document/d/1zwflIHQuoCJwn6AQzExy0hyNbuOJm2h5fkUJ4c-d11s/edit?usp=sharing
 
 ## Mockups:
 
