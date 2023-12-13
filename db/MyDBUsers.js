@@ -1,6 +1,6 @@
 import { MongoClient, ObjectId } from "mongodb";
 import dotenv from "dotenv";
-import bcrypt, { hash } from "bcrypt";
+import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 dotenv.config();

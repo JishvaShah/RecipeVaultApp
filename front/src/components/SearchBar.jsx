@@ -15,7 +15,9 @@ export const SearchBar = ({ keyword, setKeyword, setCurrentPage }) => {
             }}
             placeholder="Search Your Favourite Recipe..."
             id="example-search-input"
+            autoFocus
           />
+
           <span className="input-group-append mx-2">
             <button
               aria-label="search button"
