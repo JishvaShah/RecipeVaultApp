@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Agbalumo&family=Montserrat&display=swap");
+
+.text-center{
+    font-family: "Agbalumo", serif;
+    color:#f34242 ;
+    font-size: 40px;
+}
+
+    .btn{
+        color:white;
+        background-color: rgba(243, 66, 66, 0.9);
+        border-color: rgba(243, 66, 66, 0.9);
+
+}
+
+.btn:hover{
+    color:white;
+    background-color: rgba(243, 66, 66, 1);
+    border-color: rgba(243, 66, 66, 1);
+}

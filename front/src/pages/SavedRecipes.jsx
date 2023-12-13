@@ -36,7 +36,7 @@ export const SavedRecipes = () => {
 
   const toggleLike = async (recipeId, isLiked) => {
     try {
-      const newIsLiked = !isLiked; // Toggle the like status
+      const newIsLiked = !isLiked; // Toggles the like status
       await fetch(`/api/recipe/update-like/${recipeId}`, {
         method: "POST",
         headers: {
@@ -83,7 +83,7 @@ export const SavedRecipes = () => {
           (recipe) => recipe._id !== recipeId
         );
         setRecipes(updatedRecipes);
-        setCurrentPage(1);
+        // setCurrentPage(1);
       } catch (error) {
         console.error(error);
       }
@@ -107,7 +107,7 @@ export const SavedRecipes = () => {
   const recipesToDisplay = filteredRecipes.slice(startIndex, endIndex);
 
   return (
-    <div>
+    <div className="recipe-container">
       <h1 className="recipe-title">-My Recipes-</h1>
       <div className="col-md-12 mt-2">
             <p className="search-info-text">
@@ -156,8 +156,7 @@ export const SavedRecipes = () => {
                 <div className="card-body">
                   <h3 className="card-title">{recipe.name}</h3>
                   <p className="card-text">
-                    <span className="card-text-title">Ingredients: </span>
-                    <br />
+                    <h6 className="card-text-title">Ingredients: </h6>
                     <ul>
                       {recipe.ingredients.map((ingredient, index) => (
                         <li key={index}>{ingredient}</li>
@@ -165,12 +164,12 @@ export const SavedRecipes = () => {
                     </ul>
                   </p>
                   <p className="card-text">
-                    <span className="card-text-title">Instructions: </span>
-                    <br />
+                    <h6 className="card-text-title">Instructions: </h6>
                     {recipe.instructions}
                   </p>
                   <p className="card-text">
-                    Cooking Time: {recipe.cookingTime} mins
+                  <h6 className="card-text-title">Cooking Time: </h6>
+                     {recipe.cookingTime} mins
                   </p>
                   <div className="card-footer">
                     <LikeButton

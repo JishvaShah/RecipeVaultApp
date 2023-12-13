@@ -54,6 +54,41 @@ export const NavBar = () => {
                   </Link>
                 </div>
               </li>
+            </ul>
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <div className="nav-link">
+                  <Link
+                    to={cookies.access_token ? "/create-recipe" : "/login"}
+                    style={{ textDecoration: "none", color: "inherit" }}
+                    onClick={handleProtectedRoute}
+                  >
+                    Create Recipe
+                  </Link>
+                </div>
+              </li>
+              <li className="nav-item">
+                <div className="nav-link">
+                  <Link
+                    to={cookies.access_token ? "/saved-recipes" : "/login"}
+                    style={{ textDecoration: "none", color: "inherit" }}
+                    onClick={handleProtectedRoute}
+                  >
+                    All Recipes
+                  </Link>
+                </div>
+              </li>
+              <li className="nav-item">
+                <div className="nav-link">
+                  <Link
+                    to={cookies.access_token ? "/favourites" : "/login"}
+                    style={{ textDecoration: "none", color: "inherit" }}
+                    onClick={handleProtectedRoute}
+                  >
+                    Favorites
+                  </Link>
+                </div>
+              </li>
               {!cookies.access_token ? (
                 <>
                   <li className="nav-item">
@@ -102,39 +137,6 @@ export const NavBar = () => {
                 </>
               )}
             </ul>
-            <span className="navbar-text me-4">
-              <div className="nav-link">
-                <Link
-                  to={cookies.access_token ? "/create-recipe" : "/login"}
-                  style={{ textDecoration: "none", color: "inherit" }}
-                  onClick={handleProtectedRoute}
-                >
-                  Create Recipe
-                </Link>
-              </div>
-            </span>
-            <span className="navbar-text me-4">
-              <div className="nav-link">
-                <Link
-                  to={cookies.access_token ? "/saved-recipes" : "/login"}
-                  style={{ textDecoration: "none", color: "inherit" }}
-                  onClick={handleProtectedRoute}
-                >
-                  All Recipes
-                </Link>
-              </div>
-            </span>
-            <span className="navbar-text me-4">
-              <div className="nav-link">
-                <Link
-                  to={cookies.access_token ? "/favourites" : "/login"}
-                  style={{ textDecoration: "none", color: "inherit" }}
-                  onClick={handleProtectedRoute}
-                >
-                  Favorites
-                </Link>
-              </div>
-            </span>
           </div>
         </div>
       </nav>
