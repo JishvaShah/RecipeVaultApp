@@ -8,9 +8,10 @@
 }
 
 .btn.btn-primary{
-    color:white;
-    background-color: rgba(243, 66, 66, 0.9);
-    border-color: rgba(243, 66, 66, 0.9);
+    color:black;
+    font-weight: 600;
+    background-color: #ffebcc;
+    border-color: #ffebcc;
 
 }
 
