@@ -101,23 +101,30 @@ export const CreateRecipes = () => {
               </label>
               <br />
               {recipe.ingredients.map((ingredient, index) => (
-                 <div key={index} className="d-flex mb-2">
-                 <input
-                   type="text"
-                   name="ingredients"
-                   value={ingredient}
-                   onChange={(event) => handleIngredientChange(event, index)}
-                   className="form-control"
-                   required
-                 />
-                 <button
-                   type="button"
-                   className="btn btn-danger ms-2"
-                   onClick={() => handleDeleteIngredient(index)}
-                 >
-                   X
-                 </button>
-               </div>
+                <div key={index} className="d-flex mb-2">
+                  <label
+                    htmlFor={`ingredient-${index}`}
+                    className="visually-hidden"
+                  >
+                    Ingredient {index + 1}
+                  </label>
+                  <input
+                    type="text"
+                    id={`ingredient-${index}`}
+                    name={`ingredients-${index}`}
+                    value={ingredient}
+                    onChange={(event) => handleIngredientChange(event, index)}
+                    className="form-control"
+                    required
+                  />
+                  <button
+                    type="button"
+                    className="btn btn-danger ms-2"
+                    onClick={() => handleDeleteIngredient(index)}
+                  >
+                    X
+                  </button>
+                </div>
               ))}
               <div className="mb-3 d-flex justify-content-center">
                 <button
