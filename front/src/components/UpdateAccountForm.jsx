@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import Spinner from "./Spinner";
+import "./UpdateAccountForm.css";
 
 const UpdateAccountForm = ({
   buttonText,
@@ -33,7 +34,7 @@ const UpdateAccountForm = ({
               />
             </div>
             <div className="row g-3">
-              <div className="col-md-6">
+              <div className="col">
                 <label htmlFor="inputPassword2" className="visually-hidden">
                   Password
                 </label>
@@ -46,6 +47,7 @@ const UpdateAccountForm = ({
                   onChange={(event) => {
                     setPassword(event.target.value);
                   }}
+                  autoFocus
                 />
               </div>
               <div className="col-auto">
@@ -61,7 +63,8 @@ const UpdateAccountForm = ({
             <div className="d-grid">
               <button
                 type="submit"
-                className="btn btn-danger btn-block"
+                id="del-btn"
+                className="btn btn-block gray-button"
                 disabled={deleteLoading || passwordLoading}
               >
                 {!deleteLoading ? buttonText || "Submit" : <Spinner />}

@@ -2,7 +2,6 @@
 import passport from "passport";
 import LocalStrategy from "passport-local";
 import myDB from "./db/MyDBUsers.js";
-import passportJWT from "passport-jwt";
 import dotenv from "dotenv";
 
 dotenv.config();

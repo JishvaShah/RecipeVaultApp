@@ -13,7 +13,7 @@ export const CreateRecipes = () => {
     instructions: "",
     imageUrl: "",
     category: "",
-    cookingTime: 0,
+    cookingTime: null,
     isliked: false,
     userOwner: userID,
   });
@@ -150,6 +150,7 @@ export const CreateRecipes = () => {
                 className="form-control"
                 value={recipe.category}
                 onChange={handleChange}
+                placeholder="Italian"
                 required
               />
             </div>
@@ -159,11 +160,13 @@ export const CreateRecipes = () => {
               </label>
               <input
                 type="number"
+                min="1"
                 id="cookingTime"
                 name="cookingTime"
                 className="form-control"
                 value={recipe.cookingTime}
                 onChange={handleChange}
+                placeholder="5"
                 required
               />
             </div>

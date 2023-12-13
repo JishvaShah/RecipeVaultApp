@@ -26,8 +26,8 @@ router.post("/update-like/:recipeId", async (req, res) => {
   const { recipeId } = req.params;
   const { userId, isLiked } = req.body;
 
-  try {    
-    const result = await myDB.updateLikedRecipes(recipeId, userId, isLiked);
+  try {
+    await myDB.updateLikedRecipes(recipeId, userId, isLiked);
     res
       .status(200)
       .json({ message: "Recipe liked status updated successfully" });
@@ -36,7 +36,6 @@ router.post("/update-like/:recipeId", async (req, res) => {
     res.status(500).json({ message: "Failed to update recipe liked status" });
   }
 });
-
 
 router.delete("/delete-recipe/:recipeId", async (req, res) => {
   const { recipeId } = req.params;
@@ -51,7 +50,9 @@ router.delete("/delete-recipe/:recipeId", async (req, res) => {
     }
 
     if (recipe.userOwner !== userId) {
-      return res.status(403).json({ message: "Unauthorized to delete this recipe" });
+      return res
+        .status(403)
+        .json({ message: "Unauthorized to delete this recipe" });
     }
 
     // Delete the recipe
@@ -61,9 +62,7 @@ router.delete("/delete-recipe/:recipeId", async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Failed to delete the recipe" });
-
   }
 });
-
 
 export default router;

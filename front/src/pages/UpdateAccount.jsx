@@ -43,7 +43,16 @@ export const UpdateAccount = () => {
 
   const onPasswordChange = async (event) => {
     event.preventDefault();
+
+    if (password == "") {
+      toast.error("Please input a valid new password", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      return;
+    }
+
     setPasswordLoading(true);
+
     const token = cookies.access_token;
     try {
       const res = await fetch("/api/user/update-password", {
@@ -74,6 +83,12 @@ export const UpdateAccount = () => {
 
   const onDeleteAccount = async (event) => {
     event.preventDefault();
+    const confirmation = window.confirm(
+      "Do you surely want to delete this account?"
+    );
+    if (!confirmation) {
+      return;
+    }
     setDeleteLoading(true);
     const token = cookies.access_token;
     try {

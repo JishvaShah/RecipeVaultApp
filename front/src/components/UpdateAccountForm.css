@@ -1,0 +1,15 @@
+.gray-button {
+  background-color: #e9ecef; /* Bootstrap's gray color */
+  border-color: #e9ecef;
+  color: black;
+}
+
+.gray-button:hover {
+  background-color: #5a6268; /* A darker gray for hover effect */
+  border-color: #545b62;
+}
+
+.gray-button:disabled {
+  background-color: #e9ecef; /* Bootstrap's gray color */
+  border-color: #e9ecef;
+}
