@@ -16,9 +16,7 @@
 }
 
 .btn.btn-primary:hover{
-    color:white;
-    background-color: rgba(243, 66, 66, 1);
-    border-color: rgba(243, 66, 66, 1);
+    border :2px solid black;
 }
 
 .btn.btn-danger.ms-2{
