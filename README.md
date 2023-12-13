@@ -82,7 +82,7 @@ https://youtu.be/-kkwOGH1mV0
 
 ## Public Video Demnstration Link - Final Project:
 
-[TODO]
+https://drive.google.com/file/d/1mQlei86uUeyIURyzXj7xSluy9NDddAOO/view?usp=sharing
 
 ## Usability Study Report - Final Project:
 
