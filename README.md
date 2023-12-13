@@ -53,6 +53,18 @@ This Recipe Vault App was created by the following individuals:
 
 ![project3-thumbnail](https://github.com/JishvaShah/RecipeVaultApp/assets/77269630/17eb8fab-820c-4e53-8e77-cd728ba221a7)
 
+## Accessiblity Report - Lighthouse Screenshots:
+
+![image](https://github.com/JishvaShah/RecipeVaultApp/assets/48160866/9c1a190a-2fbc-4475-a76c-e9eaf74cb380)
+
+![image](https://github.com/JishvaShah/RecipeVaultApp/assets/48160866/4615c6ba-b951-4487-8120-cbd42d81ec1b)
+
+![image](https://github.com/JishvaShah/RecipeVaultApp/assets/48160866/88d9d69f-f361-49ac-bd48-ee686e8f2757)
+
+![image](https://github.com/JishvaShah/RecipeVaultApp/assets/48160866/cd9cf43b-cf74-411b-a49d-b5c1a9d00f36)
+
+![image](https://github.com/JishvaShah/RecipeVaultApp/assets/48160866/5246f23a-cb1f-4124-8e15-fffadb4fe9fa)
+
 ## Thumbnail link:
 
 https://github.com/JishvaShah/RecipeVaultApp/assets/77269630/17eb8fab-820c-4e53-8e77-cd728ba221a7
