@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useGetUserID } from "../hook/useGetUserID";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import "./CreateRecipe.css";
 
 export const CreateRecipes = () => {
   const userID = useGetUserID();
@@ -43,7 +44,6 @@ export const CreateRecipes = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      // console.log(recipe);
       const response = await fetch("/api/recipe/create-recipe", {
         method: "POST",
         headers: {
@@ -69,7 +69,7 @@ export const CreateRecipes = () => {
     <div className="container mt-4">
       <div className="row justify-content-center">
         <div className="col-md-6">
-          <h2 className="text-center">Create Recipe</h2>
+          <h2 className="text-center">-Create Recipe-</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="name" className="form-label">
@@ -82,6 +82,8 @@ export const CreateRecipes = () => {
                 className="form-control"
                 value={recipe.name}
                 onChange={handleChange}
+                autoFocus
+                required
               />
             </div>
             <div className="mb-3">
@@ -97,6 +99,7 @@ export const CreateRecipes = () => {
                   value={ingredient}
                   onChange={(event) => handleIngredientChange(event, index)}
                   className="form-control mb-2"
+                  required
                 />
               ))}
               <div className="mb-3 d-flex justify-content-center">
@@ -119,6 +122,7 @@ export const CreateRecipes = () => {
                 className="form-control"
                 value={recipe.instructions}
                 onChange={handleChange}
+                required
               ></textarea>
             </div>
             <div className="mb-3">
@@ -132,6 +136,7 @@ export const CreateRecipes = () => {
                 className="form-control"
                 value={recipe.imageUrl}
                 onChange={handleChange}
+                required
               />
             </div>
             <div className="mb-3">
@@ -145,6 +150,7 @@ export const CreateRecipes = () => {
                 className="form-control"
                 value={recipe.category}
                 onChange={handleChange}
+                required
               />
             </div>
             <div className="mb-3">
@@ -158,6 +164,7 @@ export const CreateRecipes = () => {
                 className="form-control"
                 value={recipe.cookingTime}
                 onChange={handleChange}
+                required
               />
             </div>
             <div className="d-flex justify-content-center mt-3">

@@ -1,5 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Agbalumo&family=Montserrat&display=swap");
+
 .recipe-title{
     text-align: center;
+    font-family: "Agbalumo", serif;
     color: #f34242 ;
     padding: 1%;
 }
@@ -50,7 +53,9 @@ div.search-container{
 }
 
 .card-title {
-   
+  font-family: "Agbalumo", serif;
+  text-align: center;
+  font-size: 40px;
   color: #f34242; 
   margin-bottom: 5px;
 }
@@ -68,7 +73,7 @@ div.search-container{
 }
 
 .card-text-title{
-  color: #f34242; 
+  /* color: #f34242;  */
   font-weight: 500;
 }
 
@@ -95,3 +100,5 @@ div.search-container{
   .delete-button{
     color:#f34242 ;
   }
+
+  
