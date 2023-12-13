@@ -35,7 +35,7 @@ In our final project iteration, we focused on optimizing the user experience and
 - **Form Validation:** Added validation checks to ensure all form information is correct before submission.
 - **Design Update:** A complete typography and color palette update to match our brand's theme, providing a consistent and visually appealing user experience.
 - **Typography Used:** Montserrat, Agbalumo, serif
-- **Color Palette Used:** #f34242, #ffebcc, #5a6268 white(#fff), black(#000)
+- **Color Palette Used:** #f34242, #ffebcc, #5a6268, white(#fff), black(#000)
 - **Security and Performance:** Introduced authentication with Passport for security
 
 ## Authors
