@@ -2,6 +2,7 @@ import { MongoClient, ObjectId } from "mongodb";
 import dotenv from "dotenv";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { setKeyVal, getKey } from "./MyDBUserRedis.js";
 
 dotenv.config();
 
@@ -98,6 +99,20 @@ function MyMongoDB() {
   };
 
   myDB.getByID = async function (userId) {
+    let redisKey = "user:" + userId + ":email:";
+    try {
+      let userEmail = await getKey(redisKey);
+      if (userEmail) {
+        return {
+          message: "Got User Successfully!",
+          error: false,
+          user: { email: userEmail },
+        };
+      }
+    } catch (err) {
+      console.log("Redis Error: ", err);
+    }
+
     const { client, db } = await connect();
     const userCollection = db.collection("Users");
     try {
@@ -108,6 +123,7 @@ function MyMongoDB() {
       if (!user) {
         return { error: true, message: "User does not exists!" };
       }
+      await setKeyVal(redisKey, user.email);
       return {
         message: "Got User Successfully!",
         error: false,
