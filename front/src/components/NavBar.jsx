@@ -85,7 +85,7 @@ export const NavBar = () => {
                     style={{ textDecoration: "none", color: "inherit" }}
                     onClick={handleProtectedRoute}
                   >
-                    Favorites
+                    Recently Created
                   </Link>
                 </div>
               </li>

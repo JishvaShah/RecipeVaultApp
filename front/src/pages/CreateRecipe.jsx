@@ -51,7 +51,7 @@ export const CreateRecipes = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch("/api/recipe/create-recipe", {
+      const response = await fetch(`/api/recipe/create-recipe/${userID}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -59,7 +59,7 @@ export const CreateRecipes = () => {
         },
         body: JSON.stringify(recipe),
       });
-
+  
       if (response.ok) {
         toast.success("Recipe created successfully!", {
           position: toast.POSITION.TOP_RIGHT,
@@ -73,6 +73,7 @@ export const CreateRecipes = () => {
       console.error(error);
     }
   };
+  
 
   return (
     <div className="container mt-4">

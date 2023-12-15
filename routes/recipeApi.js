@@ -12,14 +12,27 @@ router.get("/get-recipe/:userID", async (req, res) => {
   res.json(result);
 });
 
+//posting latest 5 recipes from Redis
+router.get("/get-recent-recipes/:userId", async (req, res) => {
+  const { userId } = req.params;
+  const result = await myDB.getRecentRecipesFromRedis(userId);
+  if (result.error) {
+    return res.status(501).json(result);
+  }
+  res.json(result);
+});
+
+
 //creating and inserting new recipe
-router.post("/create-recipe", async (req, res) => {
-  const result = await myDB.createRecipe(req.body);
+router.post("/create-recipe/:userId", async (req, res) => {
+  const { userId } = req.params;
+  const result = await myDB.createRecipe(req.body, userId);
   if (result.error) {
     return res.status(503).json(result);
   }
   res.json(result);
 });
+
 
 //updating isLiked variable based on user's like/dislike choice
 router.post("/update-like/:recipeId", async (req, res) => {
