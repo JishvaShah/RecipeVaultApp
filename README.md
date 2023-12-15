@@ -2,7 +2,7 @@
 
 Welcome to the Recipe Vault, where you can create, save, and manage your favorite recipes! This web application is built using Express.js for the backend, MongoDB as the database, and React + Vite for the frontend. With Recipe Vault, you can register, log in securely using JSON Web Tokens (JWT), and enjoy the following features:
 
-## Features
+## All Features
 
 - **User Registration and Authentication:** Users can register with a unique username and securely log in using JWT for authentication. Passwords are securely hashed using bcrypt for added security.
 
